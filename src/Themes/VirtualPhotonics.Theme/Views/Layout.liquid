@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{ Culture.Name }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ "PageTitle" | shape_new | shape_stringify }}</title>
+    {% resources type: "Meta" %}
+
+    <!-- Favicon -->
+    {% assign faviconUrl = "~/MediaTheme/Images/favicon.ico" | href %}
+    {% link type:"image/x-icon", rel:"shortcut icon", href:faviconUrl, append_version:"true" %}
+
+    <!-- Font Awesome icons (free version)-->
+    {% style name:"font-awesome", version:"7", at:"Head" %}
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- JQuery and script links -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    {% assign scriptUrl = "~/mediatheme/js/site.js" | href %}
+    {% script src:scriptUrl %}
+    <!-- Custom theme CSS -->
+    {% assign styleUrl = "~/mediatheme/styles/site.css" | href %}
+    {% style src:styleUrl %}
+
+    {% resources type: "HeadScript" %}
+    {% resources type: "HeadLink" %}
+    {% resources type: "Stylesheet" %}
+    {% render_section "HeadMeta", required: false %}
+</head>
+<body>
+    <div id="layout-wrapper">
+
+        <!-- ===== Header ===== -->
+        <div id="header">
+            <h1>
+                <a href="/">{{ Site.SiteName }}</a>
+            </h1>
+        </div>
+
+        <!-- ===== Hamburger Toggle (hidden on desktop via CSS) ===== -->
+        <div class="nav-toggle" role="button" aria-label="Toggle navigation" tabindex="0">
+            <div class="nav-toggle-bar"></div>
+        </div>
+
+        <!-- ===== Navigation ===== -->
+        <!-- In OC Admin: Navigation → Main Menu → assign NavigationMenu widget to Navigation zone -->
+        <div id="menucontainer">
+            {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_fixed_duration: "00:05:00", cache_tag: "alias:main-menu", cache_context: "user.roles" %}
+        </div>
+
+        <!-- ===== Main Layout ===== -->
+        <div id="layout-main-container">
+            <div id="layout-main">
+
+                <div id="layout-content">
+                    <div id="content">
+                        {% render_body %}
+                    </div>
+                </div>
+
+                <div id="aside-second">
+                    {% render_section "Links", required: false %}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- ===== Footer ===== -->
+        <div id="layout-footer">
+            <div class="credits">
+                &copy; {{ "now" | date: "%Y" }} Virtual Photonics Technology Initiative
+                {% render_section "Footer", required: false %}
+            </div>
+        </div>
+
+    </div>
+    {% render_section "FootScript", required: false %}
+</body>
+</html>

@@ -84,6 +84,7 @@
   <!-- Project references -->
   <ItemGroup>
     <ProjectReference Include="..\Themes\Sample.Theme\Sample.Theme.csproj" />
+    <ProjectReference Include="..\Themes\VirtualPhotonics.Theme\VirtualPhotonics.Theme.csproj" />
   </ItemGroup>
 
   <!-- Security Updates - make sure to check if these are still necessary -->
