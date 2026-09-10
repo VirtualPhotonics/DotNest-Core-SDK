@@ -7,8 +7,8 @@
     {% resources type: "Meta" %}
 
     <!-- Favicon -->
-    {% assign faviconUrl = "~/MediaTheme/Images/favicon.ico" | href %}
-    {% link type:"image/x-icon", rel:"shortcut icon", href:faviconUrl, append_version:"true" %}
+    {% assign faviconUrl = "~/mediatheme/images/favicon.ico" | href %}
+    {% link src:faviconUrl %}
 
     <!-- Font Awesome icons (free version)-->
     {% style name:"font-awesome", version:"7", at:"Head" %}

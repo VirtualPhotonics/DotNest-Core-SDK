@@ -1,0 +1,19 @@
+name: Deploy VirtualPhotonics Theme to DotNest
+
+on:
+  push:
+    branches:
+      - develop-vp
+    paths:
+      - 'src/Themes/VirtualPhotonics.Theme/**'
+
+jobs:
+  deploy-media-theme:
+    name: Deploy VirtualPhotonics Theme to DotNest
+    uses: Lombiq/Hosting-Media-Theme/.github/workflows/deploy-media-theme.yml@dev
+    secrets:
+      URL: ${{ secrets.VP_THEME_DEPLOYMENT_URL }}
+      CLIENT_NAME: ${{ secrets.VP_THEME_DEPLOYMENT_CLIENT_NAME }}
+      CLIENT_API_KEY: ${{ secrets.VP_THEME_DEPLOYMENT_CLIENT_API_KEY }}
+    with:
+      theme-path: "src/Themes/VirtualPhotonics.Theme"
