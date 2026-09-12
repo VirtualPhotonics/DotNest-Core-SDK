@@ -5,9 +5,8 @@
      images/header.png
      images/logo.png
      images/logo-small.png
-     images/mainBackground.png
-     images/sidebarBackground.gif
-     images/tabOn.gif
+     images/main-background.png
+     images/sidebar-background.gif
    ============================================================ */
 
 /*Yahoo browser reset
@@ -231,7 +230,7 @@ input[type="submit"], input[type="button"], .button {
     height: 100%;
     display: block;
     margin: 0em auto;
-    background: url(../images/mainBackground.png) no-repeat right top;
+    background: url(../images/main-background.png) no-repeat right top;
 }
 
 #layout-main {
@@ -240,7 +239,7 @@ input[type="submit"], input[type="button"], .button {
     top: 170px;
     border-top: none;
     min-height: 555px;
-    background: url(../images/sidebarBackground.gif) no-repeat right top #fff;
+    background: url(../images/sidebar-background.gif) no-repeat right top #fff;
 }
 
 #layout-content {
@@ -313,7 +312,6 @@ ul.menu {
             }
 
         ul.menu li.On {
-            background: url(../images/tabOn.gif) no-repeat bottom center;
         }
 
 #menucontainer {
@@ -542,7 +540,7 @@ ul.menu {
     }
 
     #layout-wrapper {
-        background: url(../images/mainBackground.png) no-repeat right top;
+        background: url(../images/main-background.png) no-repeat right top;
     }
 
     #aside-second {
