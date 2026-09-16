@@ -17,6 +17,8 @@
     <!-- Custom theme CSS -->
     {% assign styleUrl = "~/mediatheme/styles/site.css" | href %}
     {% style src:styleUrl %}
+    {% assign privacyConsent = "~/mediatheme/styles/privacy-consent.css" | href %}
+    {% style src:privacyConsent %}
 
     {% resources type: "HeadScript" %}
     {% resources type: "HeadLink" %}
@@ -54,8 +56,8 @@
                 </div>
 
                 <div id="aside-second">
-                    {% render_section "Links", required: false %}
-                </div>
+                    {% render_section "Aside", required: false %}
+                </div
                 <div class="clear"></div>
             </div>
         </div>
