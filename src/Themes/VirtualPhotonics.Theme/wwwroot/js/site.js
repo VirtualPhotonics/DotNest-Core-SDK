@@ -11,7 +11,6 @@ $(function () {
     if (!navToggle || !nav) return;
 
     navToggle.addEventListener('click', function (e) {
-        e.preventDefault();
         navToggle.classList.toggle('expanded');
         nav.classList.toggle('expanded');
     });
