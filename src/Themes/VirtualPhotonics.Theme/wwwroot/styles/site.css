@@ -278,9 +278,11 @@ input[type="submit"], input[type="button"], .button {
 .menu {
     font-family: "Georgia", Times New Roman, Times, serif;
     width: 100%;
-    text-align: center;
-    position: absolute;
+    text-align: left;
+    display: inline;
+    position: fixed;
     top: 130px;
+    left: 0px;
 }
 
 ul.menu {
@@ -315,7 +317,7 @@ ul.menu {
         }
 
 #menucontainer {
-    text-align: center;
+    text-align: left;
 }
 
 #layout-footer {
