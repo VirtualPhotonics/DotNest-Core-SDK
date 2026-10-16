@@ -280,7 +280,7 @@ input[type="submit"], input[type="button"], .button {
     width: 100%;
     text-align: left;
     display: inline;
-    position: fixed;
+    position: absolute;
     top: 130px;
     left: 0px;
 }
@@ -317,7 +317,7 @@ ul.menu {
         }
 
 #menucontainer {
-    text-align: left;
+    text-align: center;
 }
 
 #layout-footer {
