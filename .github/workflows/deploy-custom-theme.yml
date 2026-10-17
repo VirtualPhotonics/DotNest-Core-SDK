@@ -3,7 +3,7 @@ name: Deploy VirtualPhotonics Theme to DotNest
 on:
   push:
     branches:
-      - dev-vp
+      - dev-vp-main
     paths:
       - 'src/Themes/VirtualPhotonics.Theme/**'
 
