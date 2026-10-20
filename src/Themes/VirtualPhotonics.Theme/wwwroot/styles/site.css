@@ -247,7 +247,7 @@ input[type="submit"], input[type="button"], .button {
 
 #aside-first {
     float: left;
-    padding-right: 50px;
+    padding: 0 50px 50px 0;
 }
 
 .indent {
@@ -341,6 +341,10 @@ ul.menu {
             font-weight: normal;
             text-transform: none;
         }
+
+.dotnest-credits {
+    margin: 0;
+}
 
 /* Hide the author and the edit link on the page - we don't want this on the published site */
 .published, .manage, #comments {
