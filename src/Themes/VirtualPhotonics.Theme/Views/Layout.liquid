@@ -53,16 +53,15 @@
         <div id="layout-main-container">
             <div id="layout-main">
 
+                <div id="aside-first">
+                    {% render_section "AsideLeft", required: false %}
+                </div
+
                 <div id="layout-content">
                     <div id="content">
                         {% render_body %}
                     </div>
                 </div>
-
-                <div id="aside-second">
-                    {% render_section "AsideRight", required: false %}
-                </div
-                <div class="clear"></div>
             </div>
         </div>
 

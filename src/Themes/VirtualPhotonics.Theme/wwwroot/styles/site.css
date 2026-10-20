@@ -1,14 +1,6 @@
 /* ============================================================
    VirtualPhotonics — site.css
    ============================================================
-     images/favicon.ico
-     images/header.png
-     images/logo.png
-     images/logo-small.png
-     images/main-background.png
-     images/sidebar-background.gif
-   ============================================================ */
-
 /*Yahoo browser reset
 ----------------------------------------------------------*/
 
@@ -33,7 +25,8 @@ address, caption, cite, code, dfn, em, strong, th, var {
 }
 
 ol, ul {
-    list-style: none;
+    list-style-position: inside;
+    padding-left: 20px;
 }
 
 caption, th {
@@ -43,6 +36,7 @@ caption, th {
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
     font-weight: normal;
+    padding-top: 12px;
 }
 
 abbr, acronym {
@@ -51,6 +45,10 @@ abbr, acronym {
 
 q:before, q:after {
     content: '';
+}
+
+abbr, acronym {
+    border: 0;
 }
 
 /*Defaults
@@ -62,8 +60,7 @@ html {
 
 body {
     font: normal 100% Calibri, Tahoma, sans-serif;
-    background: url(../images/header.png) top left repeat-x #fff;
-    height: 100%;
+    background: url("../images/header.png") top left repeat-x #fff; height: 100%;
     text-align: left;
     color: #333;
 }
@@ -109,7 +106,6 @@ h6 {
 
 p {
     line-height: 24px;
-    margin: 12px 0 32px 0;
 }
 
     p.small {
@@ -118,6 +114,7 @@ p {
     }
 
 a {
+    color: #004386;
     color: #05325f;
     text-decoration: none;
     font-weight: bold;
@@ -137,6 +134,7 @@ ol.decimal {
     margin: 0 0 0 12px;
 }
 
+
 /* Forms
 ----------------------------------------------------------*/
 
@@ -150,7 +148,7 @@ fieldset {
 }
 
     fieldset div {
-        margin: 16px 0 0 0;
+        margin: 16px 0 0 0
     }
 
 legend {
@@ -187,17 +185,18 @@ input[type="submit"], input[type="button"], .button {
     display: inline;
 }
 
-/* ---------- Layout ---------- */
 
+/* ---------- Layout ---------- */
 #header {
     float: left;
     width: 500px;
     height: 138px;
 }
 
+
     #header h1 {
         font-family: "Georgia", Times New Roman, Times, serif;
-        background: url(../images/logo.png) no-repeat left top;
+        background: url("../images/logo.png") no-repeat left top;
         height: 138px;
         color: #fff;
         text-transform: uppercase;
@@ -230,7 +229,7 @@ input[type="submit"], input[type="button"], .button {
     height: 100%;
     display: block;
     margin: 0em auto;
-    background: url(../images/main-background.png) no-repeat right top;
+    background: url("../images/main-background.png") no-repeat right top;
 }
 
 #layout-main {
@@ -239,30 +238,18 @@ input[type="submit"], input[type="button"], .button {
     top: 170px;
     border-top: none;
     min-height: 555px;
-    background: url(../images/sidebar-background.gif) no-repeat right top #fff;
 }
 
 #layout-content {
+    width: 75%;
+    padding-left: 200px;
+    margin-bottom: 40px;
+}
+
+#aside-first {
     float: left;
-    width: 60%;
+    padding-right: 50px;
 }
-
-#aside-second {
-    float: right;
-    margin: 4px 0 0 0;
-    min-height: 400px;
-    margin-bottom: 30px;
-}
-
-    #aside-second li {
-        list-style-type: none;
-        padding: 0 0 20px 0;
-    }
-
-    #aside-second ul {
-        list-style-type: none;
-        line-height: normal;
-    }
 
 .indent {
     padding-left: 20px;
@@ -271,9 +258,13 @@ input[type="submit"], input[type="button"], .button {
 #content ul {
     list-style: disc inside;
     line-height: 25px;
+    padding: 20px 0;
 }
 
 /* ---------- Navigation ---------- */
+
+/* Top navigation pane
+----------------------------------------------------------*/
 
 .menu {
     font-family: "Georgia", Times New Roman, Times, serif;
@@ -297,9 +288,7 @@ ul.menu {
         margin: 0 0 0 15px;
     }
 
-        ul.menu li a,
-        ul.menu li a:visited,
-        ul.menu li a:active {
+        ul.menu li a, ul.menu li a:visited, ul.menu li a:active {
             display: block;
             padding: 12px 12px 10px 12px;
             color: #e2e4dd;
@@ -309,11 +298,13 @@ ul.menu {
             text-decoration: none;
         }
 
+
             ul.menu li a:hover {
                 color: #ffea9b;
             }
 
         ul.menu li.On {
+            background: url("../images/tab-on.gif") no-repeat bottom center;
         }
 
 #menucontainer {
@@ -345,14 +336,14 @@ ul.menu {
     }
 
         #layout-footer .menu a {
-            font-family: Calibri, Tahoma, sans-serif;
+            Font-family: Calibri, Tahoma, sans-serif;
             color: #000;
             margin: 0 8px;
             font-weight: normal;
             text-transform: none;
         }
 
-/* Hide author and edit links on published site */
+/* Hide the author and the edit link on the page - we don't want this on the published site */
 .published, .manage, #comments {
     display: none;
 }
@@ -425,12 +416,6 @@ ul.menu {
     font-weight: bold;
 }
 
-.software-images {
-    width: 50%;
-    padding-left: 20px;
-    float: right;
-}
-
 .clear {
     clear: both;
 }
@@ -444,11 +429,11 @@ ul.menu {
 /* Mobile Sizing */
 @media (max-width: 768px) {
     #header {
-        width: 100%;
+        width: 100%
     }
 
         #header h1 {
-            background: url(../images/logo-small.png) no-repeat left top;
+            background: url("../images/logo-small.png") no-repeat left top;
             font-size: 90%;
             padding: 50px 0 0 90px;
             width: auto;
@@ -460,10 +445,12 @@ ul.menu {
 
     #layout-content {
         width: 100%;
+        padding-left: 0;
     }
 
-    #aside-second {
-        width: 100%;
+    #aside-first {
+        float: none;
+        padding-right: 0;
     }
 
     ul.menu {
@@ -493,17 +480,9 @@ ul.menu {
         margin: 0 0 0 15px;
     }
 
-    #aside-second {
-        float: left;
-    }
-
     #layout-main {
         background: none;
         padding: 10px;
-    }
-
-    .software-images {
-        width: 100%;
     }
 
     .software-tiles {
@@ -542,12 +521,7 @@ ul.menu {
     }
 
     #layout-wrapper {
-        background: url(../images/main-background.png) no-repeat right top;
-    }
-
-    #aside-second {
-        width: 100%;
-        float: left;
+        background: url("../images/main-background.png") no-repeat right top;
     }
 
     .software-tiles {
@@ -607,8 +581,7 @@ ul.menu {
         background: transparent;
     }
 
-        .nav-toggle.expanded .nav-toggle-bar::after,
-        .nav-toggle.expanded .nav-toggle-bar::before {
+        .nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
             background: white;
             margin-top: 0;
         }
@@ -637,13 +610,6 @@ ul.menu {
 
     #layout-main {
         padding: 16px 0 35px 27px;
-        min-width: 90%;
-    }
-
-    #aside-second {
-        float: right;
-        width: auto;
-        padding-right: 40px;
     }
 
     .software-tiles {
@@ -652,9 +618,7 @@ ul.menu {
 }
 
 @media (max-width: 991px) {
-    ul.menu li a,
-    ul.menu li a:visited,
-    ul.menu li a:active {
+    ul.menu li a, ul.menu li a:visited, ul.menu li a:active {
         padding: 14px 12px;
         font-size: 63%;
     }
@@ -666,26 +630,14 @@ ul.menu {
         padding: 10px;
     }
 
-    #aside-second {
-        float: left;
-    }
-
-    #layout-content {
-        width: 100%;
-    }
-
-    ul.menu li a,
-    ul.menu li a:visited,
-    ul.menu li a:active {
+    ul.menu li a, ul.menu li a:visited, ul.menu li a:active {
         padding: 14px 10px;
         font-size: 60%;
     }
 }
 
 @media (max-width: 768px) {
-    ul.menu li a,
-    ul.menu li a:visited,
-    ul.menu li a:active {
+    ul.menu li a, ul.menu li a:visited, ul.menu li a:active {
         font-size: 100%;
     }
 }
