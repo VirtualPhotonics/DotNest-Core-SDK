@@ -352,6 +352,10 @@ ul.menu {
             text-transform: none;
         }
 
+.dotnest-credits {
+    margin: 0;
+}
+
 /* Hide author and edit links on published site */
 .published, .manage, #comments {
     display: none;
