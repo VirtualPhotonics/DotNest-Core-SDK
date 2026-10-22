@@ -18,7 +18,7 @@
       "Values": [
         {
           "executionid": "DotNest.Core.SDK.Web",
-          "name": "VirtualPhotonics.Theme.Export"
+          "name": "VirtualPhotonics.Content.Export"
         }
       ]
     }
