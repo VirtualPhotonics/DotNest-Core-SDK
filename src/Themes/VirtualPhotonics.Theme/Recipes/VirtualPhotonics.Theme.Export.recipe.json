@@ -838,15 +838,19 @@
       "name": "Content",
       "data": [
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "42j06y2r5gf6g774e9fn05xswj",
+          "ContentItemVersionId": "4r6en11w9skmf53w0c6ka7s84m",
           "ContentType": "HtmlWidget",
           "DisplayText": "AsideRight",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-17T02:07:26.4069976Z",
+          "PublishedUtc": "2026-10-17T02:07:26.4107403Z",
+          "CreatedUtc": "2026-10-17T02:06:33.9921869Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "HtmlBodyPart": {
-            "Html": "\u003Cul\u003E\n\u003Cli\u003E\n\u003Ch3\u003EOur Supporters\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\u003Ca title=\u0022NIBIB\u0022 href=\u0022http://www.nibib.nih.gov/\u0022 target=\u0022_blank\u0022\u003E\u003Cimg height=\u002260\u0022 alt=\u0022\u0022 src=\u0022https://dotneststatic.com/media/virtualphotonicsprojectsite/images/NIH-NIBIB200.png\u0022\u003E [image]Images/NIH-NIBIB200.png[/image]\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca title=\u0022NIGMS\u0022 href=\u0022http://www.nigms.nih.gov/\u0022 target=\u0022_blank\u0022\u003E\u003Cimg height=\u002260\u0022 alt=\u0022\u0022 src=\u0022https://dotneststatic.com/media/virtualphotonicsprojectsite/images/NIH-NIGMS200.png\u0022\u003E [image]Images/NIH-NIGMS200.png[/image]\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3\u003EUseful Links\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca href=\u0022https://github.com/orgs/VirtualPhotonics/discussions\u0022 target=\u0022_blank\u0022 title=\u0022General Discussion\u0022\u003EGeneral Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/discussions\u0022 target=\u0022_blank\u0022 title=\u0022MCCL Discussion\u0022\u003EMCCL Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003EGUI Walkthroughs\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003E\u003C/a\u003E\u003Ca href=\u0022http://www.bli.uci.edu/\u0022 target=\u0022_blank\u0022 title=\u0022Beckman Laser Institute\u0022\u003EBeckman Laser Institute\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Archived Google Discussion\u0022 href=\u0022https://groups.google.com/forum/#!forum/virtual-photonics\u0022 target=\u0022_blank\u0022\u003EArchived Google Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003C/ul\u003E"
+            "Html": "\u003Cul\u003E\n\u003Cli\u003E\n\u003Ch3\u003EOur Supporters\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\u003Ca title=\u0022NIBIB\u0022 href=\u0022http://www.nibib.nih.gov/\u0022 target=\u0022_blank\u0022\u003E[image]Images/NIH-NIBIB200.png[/image]\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca title=\u0022NIGMS\u0022 href=\u0022http://www.nigms.nih.gov/\u0022 target=\u0022_blank\u0022\u003E[image]Images/NIH-NIGMS200.png[/image]\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3\u003EUseful Links\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca href=\u0022https://github.com/orgs/VirtualPhotonics/discussions\u0022 target=\u0022_blank\u0022 title=\u0022General Discussion\u0022\u003EGeneral Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/discussions\u0022 target=\u0022_blank\u0022 title=\u0022MCCL Discussion\u0022\u003EMCCL Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003EGUI Walkthroughs\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003E\u003C/a\u003E\u003Ca href=\u0022http://www.bli.uci.edu/\u0022 target=\u0022_blank\u0022 title=\u0022Beckman Laser Institute\u0022\u003EBeckman Laser Institute\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Archived Google Discussion\u0022 href=\u0022https://groups.google.com/forum/#!forum/virtual-photonics\u0022 target=\u0022_blank\u0022\u003EArchived Google Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003C/ul\u003E"
           },
           "AdditionalStylingPart": {
             "RemoveGridExtensionClasses": false,
@@ -863,13 +867,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4k6fn4f5ptbssz88ct67ydtzwn",
+          "ContentItemVersionId": "4rjyz8x7sewcczpvxzv1z8mqx3",
           "ContentType": "Page",
           "DisplayText": "Software",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-17T02:24:35.8276566Z",
+          "PublishedUtc": "2026-10-17T02:24:35.8309201Z",
+          "CreatedUtc": "2026-10-17T01:41:54.6391705Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Software"
@@ -914,13 +922,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4bbq318rtaecbr0kmrgy2909xw",
+          "ContentItemVersionId": "4wdt7tttz2nft3rqtrqdpqvsmw",
           "ContentType": "Page",
           "DisplayText": "Contact Us",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T01:04:33.3268116Z",
+          "PublishedUtc": "2026-10-21T01:04:33.3433142Z",
+          "CreatedUtc": "2026-10-21T00:40:02.2442574Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Contact Us"
@@ -965,13 +977,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4q9exa9k78fxg26ng13c8619xd",
+          "ContentItemVersionId": "457tfqbj5qa2e0f8jre51fbdd2",
           "ContentType": "Page",
           "DisplayText": "Developers",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T01:51:37.557537Z",
+          "PublishedUtc": "2026-10-21T01:51:37.5614513Z",
+          "CreatedUtc": "2026-10-21T01:46:27.6167534Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Developers"
@@ -1016,13 +1032,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4754wnthphnwwtbh0ga8k4jpwc",
+          "ContentItemVersionId": "4pf0dh7y9an5g4q4pv1h8t4vc8",
           "ContentType": "Page",
           "DisplayText": "Python Scripting",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:06:39.5186415Z",
+          "PublishedUtc": "2026-10-21T02:06:39.5332863Z",
+          "CreatedUtc": "2026-10-21T02:06:39.5186415Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Python Scripting"
@@ -1067,13 +1087,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4sj6m4j1zfzw7538crbshqhy4m",
+          "ContentItemVersionId": "49zjamkjcjrpfsephechgv4wcs",
           "ContentType": "Page",
           "DisplayText": "WPF Application",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:13:39.6858874Z",
+          "PublishedUtc": "2026-10-21T02:13:39.6955535Z",
+          "CreatedUtc": "2026-10-21T02:13:39.6858874Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "WPF Application"
@@ -1118,13 +1142,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4za050tv7kq6jxj6e0vrycknnf",
+          "ContentItemVersionId": "4p8c4txzt3qq0w9b26g551564x",
           "ContentType": "Page",
           "DisplayText": "Acknowledgement",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:16:22.7551445Z",
+          "PublishedUtc": "2026-10-21T02:16:22.7638909Z",
+          "CreatedUtc": "2026-10-21T02:16:22.7551445Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Acknowledgement"
@@ -1169,13 +1197,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4y6mrgdgg9v13s3b763bf9k3de",
+          "ContentItemVersionId": "4k14b7dk4sfm55rn04yqy5cw4f",
           "ContentType": "Page",
           "DisplayText": "Monte Carlo Command Line",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:18:40.9327466Z",
+          "PublishedUtc": "2026-10-21T02:18:40.9409675Z",
+          "CreatedUtc": "2026-10-21T02:18:40.9327466Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Monte Carlo Command Line"
@@ -1220,13 +1252,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4g3zy6h9net9747d34jn7xajwa",
+          "ContentItemVersionId": "4am6wka1f7b8ms1v1wmrn7jynh",
           "ContentType": "Page",
           "DisplayText": "Silverlight Application",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:21:49.4646156Z",
+          "PublishedUtc": "2026-10-21T02:21:49.4727289Z",
+          "CreatedUtc": "2026-10-21T02:21:49.4646156Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Silverlight Application"
@@ -1271,13 +1307,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4katgkds480tqv7rg0aa4z7bmq",
+          "ContentItemVersionId": "4kz5aqzxhm7q211wrkj2bbcvda",
           "ContentType": "Page",
           "DisplayText": "Documentation",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:29:02.995879Z",
+          "PublishedUtc": "2026-10-21T02:29:02.9995281Z",
+          "CreatedUtc": "2026-10-21T02:23:34.723206Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Documentation"
@@ -1322,13 +1362,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4hrcgn8xqzn91xgpfx2dhv7twe",
+          "ContentItemVersionId": "4918wcf5ay8p8s777g05z1kzw4",
           "ContentType": "Menu",
           "DisplayText": "Main Menu",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:31:30.9886905Z",
+          "PublishedUtc": "2026-10-21T02:31:30.9949187Z",
+          "CreatedUtc": "2026-10-17T01:40:09.1280489Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "TitlePart": {
             "Title": "Main Menu"
           },
@@ -1502,13 +1546,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4crtjt69r5hhd3abmjnw21frdv",
+          "ContentItemVersionId": "4fmhe36x6gbfj69bnv35ttp0m1",
           "ContentType": "Page",
           "DisplayText": "MATLAB Interoperability",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:33:57.4509489Z",
+          "PublishedUtc": "2026-10-21T02:33:57.4613011Z",
+          "CreatedUtc": "2026-10-21T02:33:29.995806Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "MATLAB Interoperability"
@@ -1553,13 +1601,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "416jc2yh7r9rpw0awpw5ctjcxd",
+          "ContentItemVersionId": "4aw1w7eavvjbfsc7m2zkb7qs55",
           "ContentType": "Page",
           "DisplayText": "Cross-Platform GUI",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:35:35.2707961Z",
+          "PublishedUtc": "2026-10-21T02:35:35.2841749Z",
+          "CreatedUtc": "2026-10-21T02:35:35.2707961Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Cross-Platform GUI"
@@ -1604,13 +1656,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4qkm9ctqnvca01crmy5vqg1xnt",
+          "ContentItemVersionId": "40q6d1wr1ya4b4gjm26k1cxbxv",
           "ContentType": "Page",
           "DisplayText": "Mie Simulator",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:37:45.9747652Z",
+          "PublishedUtc": "2026-10-21T02:37:45.9858505Z",
+          "CreatedUtc": "2026-10-21T02:37:45.9747652Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Mie Simulator"
@@ -1655,13 +1711,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4yybqxd1gh09cs9rbfggeb5dm1",
+          "ContentItemVersionId": "42qazxn4yjnw64bm20vf7p8659",
           "ContentType": "Page",
           "DisplayText": "Software Concept",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:40:09.7791133Z",
+          "PublishedUtc": "2026-10-21T02:40:09.789094Z",
+          "CreatedUtc": "2026-10-21T02:40:09.7791133Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Software Concept"
@@ -1706,13 +1766,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4rvr3nc9zngbkvd86q7ddsezc3",
+          "ContentItemVersionId": "49sa50b9g6zaa10rpg4rpvmrwq",
           "ContentType": "Page",
           "DisplayText": "Analysis Layer",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:43:20.8207738Z",
+          "PublishedUtc": "2026-10-21T02:43:20.8289504Z",
+          "CreatedUtc": "2026-10-21T02:43:20.8207738Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Analysis Layer"
@@ -1757,13 +1821,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4c45h7mj2xy6v44shnwe7kk6m6",
+          "ContentItemVersionId": "41qc2spa2y9bdrxhkhx036exd7",
           "ContentType": "Page",
           "DisplayText": "Analysis References",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:44:50.4329381Z",
+          "PublishedUtc": "2026-10-21T02:44:50.4416357Z",
+          "CreatedUtc": "2026-10-21T02:44:50.4329381Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Analysis References"
@@ -1808,13 +1876,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "492mt8v9ehd4zsmfd2qnfddqcc",
+          "ContentItemVersionId": "46cmbh9pnp9g91kwh4w4nbx25r",
           "ContentType": "Page",
           "DisplayText": "References",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:45:38.7700634Z",
+          "PublishedUtc": "2026-10-21T02:45:38.7803559Z",
+          "CreatedUtc": "2026-10-21T02:45:38.7700634Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "References"
@@ -1859,13 +1931,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4t6q2r8bfeqwy1f5aszcgr3vdm",
+          "ContentItemVersionId": "4c0rtw680azqp061cqgv2ncxxw",
           "ContentType": "Page",
           "DisplayText": "Monte Carlo GUI Mock-up",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:47:12.2176157Z",
+          "PublishedUtc": "2026-10-21T02:47:12.2255769Z",
+          "CreatedUtc": "2026-10-21T02:47:12.2176157Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Monte Carlo GUI Mock-up"
@@ -1910,13 +1986,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4vtd2bxpnk7rp0t9hf7g3fz8wg",
+          "ContentItemVersionId": "4z9j6zv0g4h106d6bwp5t19xmg",
           "ContentType": "Page",
           "DisplayText": "Optimization Layer",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:49:21.8421479Z",
+          "PublishedUtc": "2026-10-21T02:49:21.8501538Z",
+          "CreatedUtc": "2026-10-21T02:49:21.8421479Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Optimization Layer"
@@ -1961,13 +2041,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "49yjffbv766g2sgvnnffhpxnd7",
+          "ContentItemVersionId": "4y3zxwmez5k42xprpf2v0xr955",
           "ContentType": "Page",
           "DisplayText": "Solver Layer",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:50:33.4602519Z",
+          "PublishedUtc": "2026-10-21T02:50:33.4690823Z",
+          "CreatedUtc": "2026-10-21T02:50:33.4602519Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Solver Layer"
@@ -2012,13 +2096,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4jwt464p9hqtsrh5058g0tkpxm",
+          "ContentItemVersionId": "4yzfbw3htra31rv55pygc5z15j",
           "ContentType": "Page",
           "DisplayText": "Problem Definition Layer",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:52:21.7633209Z",
+          "PublishedUtc": "2026-10-21T02:52:21.7726371Z",
+          "CreatedUtc": "2026-10-21T02:52:21.7633209Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Problem Definition Layer"
@@ -2063,13 +2151,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "45kvgzfqrd6gzsdqhp1zzt4hxm",
+          "ContentItemVersionId": "403hfahtr7j055xdavrtty4nw2",
           "ContentType": "Page",
           "DisplayText": "Visualization Layer",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:53:37.9274156Z",
+          "PublishedUtc": "2026-10-21T02:53:37.9357662Z",
+          "CreatedUtc": "2026-10-21T02:53:37.9274156Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Visualization Layer"
@@ -2114,13 +2206,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "4sm3p9p6ed86k5m6z3kd2p59wj",
+          "ContentItemVersionId": "48z6rwc2x82g40d23g325pm8ch",
           "ContentType": "Page",
           "DisplayText": "Privacy Policy",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T02:55:02.7248344Z",
+          "PublishedUtc": "2026-10-21T02:55:02.7336725Z",
+          "CreatedUtc": "2026-10-21T02:55:02.7248344Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Privacy Policy"
@@ -2165,13 +2261,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "43xfxf7ce1xwpwxqsbm8b64cc4",
+          "ContentItemVersionId": "4ax0ng317tzgrxkrxgthvawym6",
           "ContentType": "Page",
           "DisplayText": "Welcome to the Virtual Photonics Technology Initiative!",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T03:23:11.4871817Z",
+          "PublishedUtc": "2026-10-21T03:23:11.4988454Z",
+          "CreatedUtc": "2026-10-17T00:44:20.2163823Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Welcome to the Virtual Photonics Technology Initiative!"
@@ -2216,13 +2316,17 @@
           }
         },
         {
-          "ContentItemId": "[js: uuid()]",
+          "ContentItemId": "46rrdjtc10sp91khetrryr4a52",
+          "ContentItemVersionId": "4c7rapkydkkdatwefjwpne27wt",
           "ContentType": "Page",
           "DisplayText": "Video Walkthroughs",
           "Latest": true,
           "Published": true,
-          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
-          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "ModifiedUtc": "2026-10-21T03:26:46.5849182Z",
+          "PublishedUtc": "2026-10-21T03:26:46.5950919Z",
+          "CreatedUtc": "2026-10-21T02:48:10.5165859Z",
+          "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+          "Author": "admin",
           "Page": {},
           "TitlePart": {
             "Title": "Video Walkthroughs"
@@ -2364,7 +2468,7 @@
     {
       "name": "custom-settings",
       "PrivacyConsentBannerSettings": {
-        "ContentItemId": "4k3hp61xhvaj8v9dp368cn9tm8",
+        "ContentItemId": "4whgmngyk8f3e6n8b3nta78gwf",
         "ContentItemVersionId": null,
         "ContentType": "PrivacyConsentBannerSettings",
         "DisplayText": "",
