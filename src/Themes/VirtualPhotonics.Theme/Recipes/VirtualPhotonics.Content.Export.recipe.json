@@ -1,0 +1,1300 @@
+{
+  "name": "VirtualPhotonics.Content.Export",
+  "displayName": "Virtual Photonics Content Export",
+  "description": "Virtual Photonics Full Content Export",
+  "author": "Virtual Photonics",
+  "website": "https://education.virtualphotonics.org",
+  "version": "1.0",
+  "issetuprecipe": false,
+  "categories": [],
+  "tags": [],
+  "steps": [
+    {
+      "name": "Feature",
+      "enable": [
+        "Application.Default",
+        "DotNest.Tenants.Core.Web",
+        "OrchardCore.Recipes.Core",
+        "OrchardCore.Liquid.Core",
+        "OrchardCore.Liquid",
+        "OrchardCore.Indexing",
+        "DotNest.Hosting.Tenants",
+        "OrchardCore.Roles.Core",
+        "OrchardCore.Users",
+        "OrchardCore.Roles",
+        "OrchardCore.Resources",
+        "OrchardCore.Settings",
+        "OrchardCore.Contents",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Autoroute",
+        "OrchardCore.Widgets",
+        "OrchardCore.Flows",
+        "OrchardCore.Title",
+        "Lombiq.HelpfulExtensions.ContentTypes",
+        "Lombiq.HelpfulExtensions.Flows",
+        "Lombiq.HelpfulExtensions.GoogleTag",
+        "OrchardCore.Shortcodes",
+        "OrchardCore.ContentFields",
+        "OrchardCore.Markdown",
+        "OrchardCore.Html",
+        "Lombiq.HelpfulExtensions.Widgets",
+        "OrchardCore.Scripting",
+        "OrchardCore.Deployment",
+        "OrchardCore.Media",
+        "Lombiq.Hosting.MediaTheme.Bridge",
+        "Lombiq.Hosting.Tenants.Admin.Login.SubTenant",
+        "Lombiq.Hosting.Tenants.EnvironmentRobots",
+        "Lombiq.Hosting.Tenants.FeaturesGuard",
+        "Lombiq.Hosting.Tenants.Maintenance",
+        "OrchardCore.Queries.Core",
+        "OrchardCore.Elasticsearch",
+        "Lombiq.Hosting.Tenants.Maintenance.PurgeMediaCache",
+        "Lombiq.Hosting.Tenants.Maintenance.UpdateSiteUrl",
+        "OrchardCore.Recipes",
+        "Lombiq.Hosting.Tenants.MediaStorageManagement",
+        "Lombiq.Privacy",
+        "OrchardCore.CustomSettings",
+        "Lombiq.Privacy.ConsentBanner",
+        "OrchardCore.Media.Cache",
+        "OrchardCore.Queries",
+        "OrchardCore.Admin",
+        "OrchardCore.Alias",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.Deployment.Remote",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.Features",
+        "OrchardCore.Google.Analytics",
+        "OrchardCore.Rules",
+        "OrchardCore.Layers",
+        "OrchardCore.Lists",
+        "OrchardCore.Menu",
+        "OrchardCore.Navigation",
+        "OrchardCore.Security",
+        "OrchardCore.Shortcodes.Templates",
+        "OrchardCore.Themes",
+        "Lombiq.Hosting.Tenants.IdleTenantManagement.ShutDownIdleTenants",
+        "Lombiq.Hosting.MediaTheme",
+        "TheAdmin",
+        "VirtualPhotonics.Theme"
+      ]
+    },
+    {
+      "name": "ReplaceContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "Menu",
+          "DisplayName": "Menu",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "AliasPartSettings": {
+                  "Pattern": "{{ ContentItem | display_text | slugify }}"
+                },
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MenuPart",
+              "Name": "MenuPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "MenuItemsListPart",
+              "Name": "MenuItemsListPart",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "LinkMenuItem",
+          "DisplayName": "Link Menu Item",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "MenuItem"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LinkMenuItemPart",
+              "Name": "LinkMenuItemPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "LinkMenuItem",
+              "Name": "LinkMenuItem",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MenuItemPermissionPart",
+              "Name": "MenuItemPermissionPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "ContentMenuItem",
+          "DisplayName": "Content Menu Item",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "MenuItem"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "ContentMenuItemPart",
+              "Name": "ContentMenuItemPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "ContentMenuItem",
+              "Name": "ContentMenuItem",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlMenuItem",
+          "DisplayName": "Html Menu Item",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "MenuItem"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "HtmlMenuItemPart",
+              "Name": "HtmlMenuItemPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlMenuItem",
+              "Name": "HtmlMenuItem",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MenuItemPermissionPart",
+              "Name": "MenuItemPermissionPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "PrivacyConsentBannerSettings",
+          "DisplayName": "Privacy Consent Banner Settings",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "CustomSettings",
+              "Securable": false
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "ContainerWidget",
+          "DisplayName": "Container Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlWidget",
+          "DisplayName": "Html Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Editor": "Trumbowyg"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LiquidWidget",
+          "DisplayName": "Liquid Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "Liquid Part"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "MenuWidget",
+          "DisplayName": "Menu Navigation Provider Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true,
+              "Description": "Renders a menu whose contents are populated from INavigationProvider implementations that look for the \u0022menu\u0022 name (as opposed to admin menu navigation providers that use the \u0022admin\u0022 name)."
+            }
+          },
+          "ContentTypePartDefinitionRecords": []
+        },
+        {
+          "Name": "MarkdownWidget",
+          "DisplayName": "Markdown Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "MarkdownBodyPart",
+              "Name": "MarkdownBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "Markdown Part"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "ContentItemWidget",
+          "DisplayName": "Content Item Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "ContentItemWidget",
+              "Name": "ContentItemWidget",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "Page",
+          "DisplayName": "Page",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ ContentItem.DisplayText | slugify }}",
+                  "ShowHomepageOption": true,
+                  "AllowUpdatePath": false,
+                  "AllowDisabled": false,
+                  "AllowRouteContainedItems": false,
+                  "ManageContainedItemRoutes": false,
+                  "AllowAbsolutePath": false
+                }
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Empty",
+          "DisplayName": "Empty",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Securable": false,
+              "Description": "A base content type for ad-hoc welding parts or fields on."
+            }
+          },
+          "ContentTypePartDefinitionRecords": []
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "LiquidPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a Liquid formatted body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "CommonPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides an editor for the common properties of a content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "AutoroutePart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a custom url for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "WidgetsListPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a way to add widgets to Layout zones for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "FlowPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a customizable body for your content item where you can build a content structure with widgets."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "BagPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": true,
+              "Description": "Provides a collection behavior for your content item where you can place other content items."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "TitlePart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a Title for your content item.",
+              "DefaultPosition": "0"
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MarkdownBodyPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a Markdown formatted body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "HtmlBodyPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides an HTML Body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "AliasPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a way to define custom aliases for content items."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "PreviewPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a way to define the url that is used to render your content item for preview. You only need to use this for the content preview feature when running the frontend decoupled from the admin."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ListPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Add a list behavior."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MenuPart",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MenuItemPart",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "LinkMenuItemPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Description": "Provides a menu link behavior for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ContentMenuItemPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "DisplayName": "Content Menu Item",
+              "Description": "Provides a menu link behavior with the Content Picker for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "ContentPickerField",
+              "Name": "SelectedContentItem",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Selected Content Item",
+                  "Position": "0"
+                },
+                "ContentPickerFieldSettings": {
+                  "Required": true,
+                  "DisplayAllContentTypes": true,
+                  "DisplayedContentTypes": []
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlMenuItemPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "DisplayName": "Html Menu Item",
+              "Description": "Provides a menu link behavior with a field to display html for the link text."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MenuItemPermissionPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Description": "Provides a permission for the menu item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ContentItemWidget",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "ContentPickerField",
+              "Name": "ContentToDisplay",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Content to display"
+                },
+                "ContentPickerFieldSettings": {
+                  "Multiple": true,
+                  "DisplayAllContentTypes": true,
+                  "DisplayedContentTypes": [],
+                  "DisplayedStereotypes": [],
+                  "Placeholder": "",
+                  "TitlePattern": "{{ Model.ContentItem | display_text }}",
+                  "Required": false
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "DisplayType",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Display type"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "GroupId",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Group ID"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "AdminSettings": {
+        "DisplayThemeToggler": true,
+        "DisplayMenuFilter": false,
+        "DisplayNewMenu": false,
+        "DisplayTitlesInTopbar": false
+      }
+    },
+    {
+      "name": "Layers",
+      "Layers": [
+        {
+          "Name": "Default",
+          "Description": "Default layer",
+          "LayerRule": {
+            "Conditions": [],
+            "ConditionId": "4j0c4nbv4tx3ftv6t5ghw6ksme"
+          }
+        },
+        {
+          "Name": "Homepage",
+          "Description": "The widgets in this layer are only displayed on the homepage.",
+          "LayerRule": {
+            "Conditions": [
+              {
+                "$type": "OrchardCore.Rules.Models.HomepageCondition, OrchardCore.Rules",
+                "Value": true,
+                "Name": "HomepageCondition",
+                "ConditionId": "4k4zss5bf42hf374stbddy87np"
+              }
+            ],
+            "ConditionId": "4be2n5wz3qfk84b81cs83ch9xc"
+          }
+        },
+        {
+          "Name": "Always",
+          "Description": "The widgets in this layer are displayed on any page of this site.",
+          "LayerRule": {
+            "Conditions": [
+              {
+                "$type": "OrchardCore.Rules.Models.BooleanCondition, OrchardCore.Rules",
+                "Value": true,
+                "Name": "BooleanCondition",
+                "ConditionId": "47rnr4f2vs28gyc0j5xreh65cq"
+              }
+            ],
+            "ConditionId": "472r347gjfk125s46pb2hx405f"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "LayerSettings": {
+        "Zones": [
+          "Content",
+          "AsideLeft",
+          "Footer"
+        ]
+      }
+    },
+    {
+      "name": "Content",
+      "data": [
+        {
+          "ContentItemId": "4p75hf9fr9d022tnawfq5xyzxr",
+          "ContentItemVersionId": "4qgk4yc9k8acb4rb3bbhk1s34d",
+          "ContentType": "Page",
+          "DisplayText": "Education",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2026-10-20T00:58:08.0855927Z",
+          "PublishedUtc": "2026-10-20T00:58:08.1428262Z",
+          "CreatedUtc": "2026-10-20T00:54:20.1067084Z",
+          "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+          "Author": "admin",
+          "TitlePart": {
+            "Title": "Education"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "education"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4bgcrv44max15z94w72rt8pqcr",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-20T00:58:08.0844533Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EAn important goal of the Virtual Photonics Technology Initiative is the development and distribution of appropriate educational materials to the Biomedical Optics community. Currently we have the following content:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli style=\u0022padding-left: 30px\u0022\u003E\u003Ca href=\u0022training-programs\u0022 title=\u0022Multiscale Biophotonics Training Program\u0022\u003EMultiscale Biophotonics Training Program\u003C/a\u003E\u003C/li\u003E\n\u003Cli style=\u0022padding-left: 30px\u0022\u003E\u003Ca href=\u0022/shortcourses\u0022 title=\u0022Short Courses\u0022\u003EEducational materials from our Computational Biophotonics Short Courses\u003C/a\u003E\u003C/li\u003E\n\u003Cli style=\u0022padding-left: 30px\u0022\u003E\u003Ca href=\u0022/workshops\u0022 title=\u0022Workshops\u0022\u003EEducational materials from our Virtual Photonics Workshops\u003C/a\u003E\u003C/li\u003E\n\u003Cli style=\u0022padding-left: 30px\u0022\u003E\u003Ca href=\u0022/mcsc\u0022 title=\u0022Monte Carlo Short Course\u0022\u003ESpanier Lectures on Monte Carlo Methods and Virtual Photonics\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "4pj8dm9aks5g3wwcjffsn3j7x3",
+          "ContentItemVersionId": "4c9ywsqy5hrpm38kjg3hfxsbc2",
+          "ContentType": "Menu",
+          "DisplayText": "Main Menu",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2026-10-20T01:02:17.7577331Z",
+          "PublishedUtc": "2026-10-20T01:02:17.7617584Z",
+          "CreatedUtc": "2026-10-20T00:58:53.2683687Z",
+          "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+          "Author": "admin",
+          "TitlePart": {
+            "Title": "Main Menu"
+          },
+          "AliasPart": {
+            "Alias": "main-menu"
+          },
+          "MenuPart": {},
+          "MenuItemsListPart": {
+            "MenuItems": [
+              {
+                "ContentItemId": "4c2eyn61e3bch4zrfsd5y0efxs",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "DisplayText": "Home",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Url": "https://virtualphotonicstechnologyinitiative.dotnest.net",
+                  "Target": null
+                },
+                "LinkMenuItem": {},
+                "MenuItemPermissionPart": {
+                  "PermissionNames": []
+                }
+              },
+              {
+                "ContentItemId": "43akvprcvwnas6pbb9f14t7kc5",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "DisplayText": "Software",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Url": "https://virtualphotonicstechnologyinitiative.dotnest.net/software",
+                  "Target": null
+                },
+                "LinkMenuItem": {},
+                "MenuItemPermissionPart": {
+                  "PermissionNames": []
+                }
+              },
+              {
+                "ContentItemId": "4497n0rjry42sv01zqsbez6tw0",
+                "ContentItemVersionId": null,
+                "ContentType": "ContentMenuItem",
+                "DisplayText": "Education",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+                "Author": "admin",
+                "ContentMenuItemPart": {
+                  "CheckContentPermissions": false,
+                  "SelectedContentItem": {
+                    "ContentItemIds": [
+                      "4p75hf9fr9d022tnawfq5xyzxr"
+                    ]
+                  }
+                },
+                "ContentMenuItem": {}
+              }
+            ]
+          },
+          "@WeldedPartSettings": {
+            "MenuPart": {
+              "Position": "3"
+            },
+            "MenuItemsListPart": {
+              "Position": "4"
+            }
+          }
+        },
+        {
+          "ContentItemId": "4yyzk5ncyq030xxwkxcg591emf",
+          "ContentItemVersionId": "48d1ndsn7j362s72ms71b1jkxz",
+          "ContentType": "HtmlWidget",
+          "DisplayText": "Training Programs",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2026-10-20T01:13:59.6881521Z",
+          "PublishedUtc": "2026-10-20T01:13:59.69952Z",
+          "CreatedUtc": "2026-10-20T01:05:15.1203052Z",
+          "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+          "Author": "admin",
+          "HtmlBodyPart": {
+            "Html": "\u003Cp\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/training-programs\u0022 title=\u0022Multiscale Biophotonics Training Program\u0022\u003ETraining Programs\u003C/a\u003E\u003C/p\u003E\n\u003Cp\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/short-course-2026\u0022 title=\u0022Short Course 2026\u0022\u003EShort Course 2026\u003C/a\u003E\u003Ca href=\u0022short-course-2025\u0022 title=\u0022Short Course 2025\u0022\u003E\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022short-course-2024\u0022 title=\u0022Short Course 2024\u0022\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/short-course-2025\u0022 title=\u0022Short Course 2025\u0022\u003EShort Course 2025\u003C/a\u003E\u003Cbr\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/short-course-2024\u0022 title=\u0022Short Course 2024\u0022\u003EShort Course 2024\u003C/a\u003E\u003Cbr\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/short-course-2023\u0022 title=\u0022Short Course 2023\u0022\u003EShort Course 2023\u003C/a\u003E\u003C/p\u003E"
+          },
+          "AdditionalStylingPart": {
+            "RemoveGridExtensionClasses": false,
+            "CustomClasses": null
+          },
+          "@WeldedPartSettings": {
+            "AdditionalStylingPart": {}
+          },
+          "LayerMetadata": {
+            "RenderTitle": true,
+            "Position": 1,
+            "Zone": "AsideLeft",
+            "Layer": "Always"
+          }
+        },
+        {
+          "ContentItemId": "4btc5sdtd4vzk28zpkfddvg8ca",
+          "ContentItemVersionId": "4cx4yqn1b8gzpthb4fahe3ardq",
+          "ContentType": "HtmlWidget",
+          "DisplayText": "Short Courses",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2026-10-20T01:11:07.1879588Z",
+          "PublishedUtc": "2026-10-20T01:11:07.1938364Z",
+          "CreatedUtc": "2026-10-20T01:10:22.4588591Z",
+          "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+          "Author": "admin",
+          "HtmlBodyPart": {
+            "Html": "\u003Cp\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourses\u0022\u003EShort Courses\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourse2018\u0022\u003EShort Course 2018\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourse2017\u0022\u003EShort Course 2017\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourse2016\u0022\u003EShort Course 2016\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourse2015\u0022\u003EShort Course 2015\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourse2014\u0022\u003EShort Course 2014\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/shortcourse2013\u0022\u003EShort Course 2013\u003C/a\u003E\u003C/p\u003E"
+          },
+          "AdditionalStylingPart": {
+            "RemoveGridExtensionClasses": false,
+            "CustomClasses": null
+          },
+          "@WeldedPartSettings": {
+            "AdditionalStylingPart": {}
+          },
+          "LayerMetadata": {
+            "RenderTitle": true,
+            "Position": 2,
+            "Zone": "AsideLeft",
+            "Layer": "Always"
+          }
+        },
+        {
+          "ContentItemId": "4bz0cvq4rywa6yeckp65h9tt4y",
+          "ContentItemVersionId": "4w4x94x20qe45rgtd4hgy63pcr",
+          "ContentType": "HtmlWidget",
+          "DisplayText": "Workshops",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2026-10-20T01:12:09.8278816Z",
+          "PublishedUtc": "2026-10-20T01:12:09.836894Z",
+          "CreatedUtc": "2026-10-20T01:12:09.8278816Z",
+          "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+          "Author": "admin",
+          "HtmlBodyPart": {
+            "Html": "\u003Cp\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/workshops\u0022\u003EWorkshops\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/workshop2011\u0022\u003EWorkshop 2011\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/workshop2010\u0022\u003EWorkshop 2010\u003Cbr\u003E\u003C/a\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/workshop2009\u0022\u003EWorkshop 2009\u003C/a\u003E\u003C/p\u003E"
+          },
+          "AdditionalStylingPart": {
+            "RemoveGridExtensionClasses": false,
+            "CustomClasses": null
+          },
+          "@WeldedPartSettings": {
+            "AdditionalStylingPart": {}
+          },
+          "LayerMetadata": {
+            "RenderTitle": true,
+            "Position": 3,
+            "Zone": "AsideLeft",
+            "Layer": "Always"
+          }
+        },
+        {
+          "ContentItemId": "4kagtm2kv4srrt2zdkx8q1mgcr",
+          "ContentItemVersionId": "4cx07sjrgk4ktsj6fzmx0ym7ms",
+          "ContentType": "HtmlWidget",
+          "DisplayText": "Lectures",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2026-10-20T01:12:57.2590467Z",
+          "PublishedUtc": "2026-10-20T01:12:57.2668534Z",
+          "CreatedUtc": "2026-10-20T01:12:57.2590467Z",
+          "Owner": "41pmhfnev9a4zvqqfax76jj95c",
+          "Author": "admin",
+          "HtmlBodyPart": {
+            "Html": "\u003Cp\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/lectures\u0022 title=\u0022Lectures\u0022\u003ELectures\u003C/a\u003E\u003Cbr\u003E\u003Ca href=\u0022https://education.virtualphotonics.org/mcsc\u0022 title=\u0022Spanier Lectures 2007\u0022\u003ESpanier Lectures 2007\u003C/a\u003E\u003C/p\u003E"
+          },
+          "AdditionalStylingPart": {
+            "RemoveGridExtensionClasses": false,
+            "CustomClasses": null
+          },
+          "@WeldedPartSettings": {
+            "AdditionalStylingPart": {}
+          },
+          "LayerMetadata": {
+            "RenderTitle": true,
+            "Position": 4,
+            "Zone": "AsideLeft",
+            "Layer": "Always"
+          }
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "Files": []
+    },
+    {
+      "name": "custom-settings",
+      "PrivacyConsentBannerSettings": {
+        "ContentItemId": "470cd98zhvzbb7sscx32pxv5xr",
+        "ContentItemVersionId": null,
+        "ContentType": "PrivacyConsentBannerSettings",
+        "DisplayText": "",
+        "Latest": false,
+        "Published": false,
+        "ModifiedUtc": null,
+        "PublishedUtc": null,
+        "CreatedUtc": null,
+        "Owner": "",
+        "Author": "admin",
+        "LiquidPart": {
+          "Liquid": "\u003Cdiv\u003E\r\n\tOur site uses browser cookies to personalize your experience.\r\n\tRegarding this issue, please find our information on data control and processing \u003Ca href=\u0022{{ \u0027~/privacy-policy\u0027 | href }}\u0022 target=\u0022_blank\u0022\u003Ehere\u003C/a\u003E\r\n\tand our information on server logging and usage of so-called \u0027cookies\u0027 \u003Ca href=\u0022{{ \u0027~/privacy-policy\u0027 | href }}\u0022 target=\u0022_blank\u0022\u003Ehere\u003C/a\u003E.\r\n\tBy clicking here You confirm your approval of the data processing activities mentioned in these documents.\r\n\tPlease note that You may only use this website efficiently if you agree to these conditions.\r\n\u003C/div\u003E"
+        }
+      }
+    },
+    {
+      "name": "Settings",
+      "BaseUrl": null,
+      "Calendar": null,
+      "MaxPagedCount": 0,
+      "MaxPageSize": 100,
+      "PageSize": 10,
+      "TimeZoneId": "America/Los_Angeles",
+      "ResourceDebugMode": "FromConfiguration",
+      "SiteName": "Virtual Photonics Education",
+      "SiteSalt": "6a510e58372a461c89e82d3bfd30fc77",
+      "PageTitleFormat": "{% page_title Site.SiteName, position: \u0022after\u0022, separator: \u0022 - \u0022 %}",
+      "SuperUser": "41pmhfnev9a4zvqqfax76jj95c",
+      "UseCdn": false,
+      "CdnBaseUrl": null,
+      "HomeRoute": {
+        "Area": "OrchardCore.Contents",
+        "Controller": "Item",
+        "Action": "Display",
+        "contentItemId": "4p75hf9fr9d022tnawfq5xyzxr"
+      },
+      "AppendVersion": true,
+      "CacheMode": "FromConfiguration"
+    },
+    {
+      "name": "Themes",
+      "Site": "VirtualPhotonics.Theme",
+      "Admin": "TheAdmin"
+    },
+    {
+      "name": "deployment",
+      "Plans": [
+        {
+          "Name": "Full Export",
+          "Steps": [
+            {
+              "Type": "AllFeaturesDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Features.Deployment.AllFeaturesDeploymentStep, OrchardCore.Features",
+                "IgnoreDisabledFeatures": true,
+                "Id": "2ccc2c3f91a64921a3a5429442e697fb",
+                "Name": "AllFeatures",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "ReplaceContentDefinitionDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.ContentTypes.Deployment.ReplaceContentDefinitionDeploymentStep, OrchardCore.ContentTypes",
+                "IncludeAll": true,
+                "ContentTypes": [],
+                "ContentParts": [],
+                "Id": "7efbb2588f3c470ebabafd04ccd76707",
+                "Name": "ReplaceContentDefinition",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "AdminSettings_SiteSettingsPropertyDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Settings.Deployment.SiteSettingsPropertyDeploymentStep\u00601[[OrchardCore.Admin.Models.AdminSettings, OrchardCore.Admin.Abstractions]], OrchardCore.Settings.Core",
+                "Id": "d7c4d627357e4819a61ebde607cfac57",
+                "Name": "AdminSettings_SiteSettingsPropertyDeploymentStep",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "AllLayersDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Layers.Deployment.AllLayersDeploymentStep, OrchardCore.Layers",
+                "Id": "bba13d71eda649ef9fd1323d7f9decf4",
+                "Name": "AllLayers",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "AllContentDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Contents.Deployment.AllContentDeploymentStep, OrchardCore.Contents",
+                "ExportAsSetupRecipe": false,
+                "Id": "808ec180c0ef4f74a28f16dedc82fb8b",
+                "Name": "AllContent",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "MediaDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Media.Deployment.MediaDeploymentStep, OrchardCore.Media",
+                "IncludeAll": false,
+                "FilePaths": [],
+                "DirectoryPaths": [
+                  "_Users"
+                ],
+                "Id": "bc58a162d04e43d7a847ffc340ad89c0",
+                "Name": "Media",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "CustomSettingsDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.CustomSettings.Deployment.CustomSettingsDeploymentStep, OrchardCore.CustomSettings",
+                "IncludeAll": true,
+                "SettingsTypeNames": [],
+                "Id": "5b0ba4796c3f45acb3a49149f2810fd8",
+                "Name": "CustomSettings",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "SiteSettingsDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Settings.Deployment.SiteSettingsDeploymentStep, OrchardCore.Settings",
+                "Settings": [
+                  "BaseUrl",
+                  "Calendar",
+                  "MaxPagedCount",
+                  "MaxPageSize",
+                  "PageSize",
+                  "TimeZoneId",
+                  "ResourceDebugMode",
+                  "SiteName",
+                  "SiteSalt",
+                  "PageTitleFormat",
+                  "SuperUser",
+                  "UseCdn",
+                  "CdnBaseUrl",
+                  "HomeRoute",
+                  "AppendVersion",
+                  "CacheMode"
+                ],
+                "Id": "2bba8d1a145545fbbbbda4b31b319f8a",
+                "Name": "SiteSettings",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "ThemesDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Themes.Deployment.ThemesDeploymentStep, OrchardCore.Themes",
+                "Id": "97e1f2e716594014b2f87d758db4eb44",
+                "Name": "Themes",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "DeploymentPlanDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Deployment.Deployment.DeploymentPlanDeploymentStep, OrchardCore.Deployment",
+                "IncludeAll": true,
+                "DeploymentPlanNames": [],
+                "Id": "2c8aabc9ed864c33ad56a9398144fdd2",
+                "Name": "DeploymentPlan",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            },
+            {
+              "Type": "RecipeFileDeploymentStep",
+              "Step": {
+                "$type": "OrchardCore.Deployment.Steps.RecipeFileDeploymentStep, OrchardCore.Deployment",
+                "RecipeName": "VirtualPhotonics.Content.Export",
+                "DisplayName": "Virtual Photonics Content Export",
+                "Description": "Virtual Photonics Full Content Export",
+                "Author": "Virtual Photonics",
+                "WebSite": "https://education.virtualphotonics.org",
+                "Version": "1.0",
+                "IsSetupRecipe": false,
+                "Id": "d2bbce0ceb3d4da6baf7f5c488541fb4",
+                "Name": "RecipeFileDeploymentStep",
+                "Category": {
+                  "Name": "",
+                  "Value": "",
+                  "ResourceNotFound": false
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

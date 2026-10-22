@@ -1,9 +1,9 @@
 {
-  "name": "DotNest.Core.SDK.MediaTheme.Setup",
-  "displayName": "DotNest Core SDK - Media Theme Setup",
-  "description": "Settings and features required only for Media Theme development.",
-  "author": "Lombiq Technologies",
-  "website": "https://github.com/Lombiq/DotNest-Core-SDK",
+  "name": "VirtualPhotonics.Setup",
+  "displayName": "Virtual Photonics - Setup",
+  "description": "Settings and features required only for development.",
+  "author": "Virtual Photonics",
+  "website": "https://github.com/VirtualPhotonics/DotNest-Core-SDK",
   "version": "1.0",
   "issetuprecipe": true,
   "categories": [ "dotnestcoresdk" ],
@@ -18,7 +18,7 @@
       "Values": [
         {
           "executionid": "DotNest.Core.SDK.Web",
-          "name": "DotNest.Core.SDK.Common"
+          "name": "VirtualPhotonics.Content.Export"
         }
       ]
     }

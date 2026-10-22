@@ -1,6 +1,6 @@
 {
-  "name": "DotNest.Core.SDK.Common",
-  "displayName": "DotNest Core SDK - Common",
+  "name": "VirtualPhotonics.Common",
+  "displayName": "Virtual Photonics - Common",
   "description": "Common settings and features required for setup.",
   "author": "Lombiq Technologies",
   "website": "https://github.com/Lombiq/DotNest-Core-SDK",
@@ -131,7 +131,7 @@
         "TheAdmin",
         "TheTheme",
         "Lombiq.BaseTheme",
-        "Sample.Theme"
+        "VirtualPhotonics.Theme"
       ]
     },
     {
@@ -145,7 +145,7 @@
           "ContentItemId": "[js: variables('homeContentItemId')]",
           "ContentItemVersionId": "[js: uuid()]",
           "ContentType": "Page",
-          "DisplayText": "This is DotNest Core SDK",
+          "DisplayText": "This is Virtual Photonics",
           "Latest": true,
           "Published": true,
           "ModifiedUtc": "[js: variables('now')]",
@@ -154,10 +154,10 @@
           "Owner": "[js: parameters('AdminUserId')]",
           "Author": "[js: parameters('AdminUsername')]",
           "TitlePart": {
-            "Title": "This is DotNest Core SDK"
+            "Title": "This is Virtual Photonics"
           },
           "AutoroutePart": {
-            "Path": "this-is-dotnest-core-sdk",
+            "Path": "this-is-virtual-photonics",
             "SetHomepage": true,
             "Disabled": false,
             "RouteContainedItems": false,
@@ -195,7 +195,7 @@
       "Values": [
         {
           "executionid": "DotNest.Core.SDK.Web",
-          "name": "Sample.MediaTheme"
+          "name": "VirtualPhotonics.MediaTheme"
         }
       ]
     }
