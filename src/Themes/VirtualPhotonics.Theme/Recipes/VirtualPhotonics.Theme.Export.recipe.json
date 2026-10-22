@@ -1,0 +1,2413 @@
+{
+  "name": "VirtualPhotonics.Theme.Export",
+  "displayName": "Virtual Photonics - Theme Export",
+  "description": "Virtual Photonics Content Export",
+  "author": "",
+  "website": "VirtualPhotonics.org",
+  "version": "",
+  "issetuprecipe": false,
+  "categories": [],
+  "tags": [],
+  "steps": [
+    {
+      "name": "Feature",
+      "enable": [
+        "Application.Default",
+        "DotNest.Tenants.Core.Web",
+        "OrchardCore.Recipes.Core",
+        "OrchardCore.Liquid.Core",
+        "OrchardCore.Liquid",
+        "OrchardCore.Indexing",
+        "DotNest.Hosting.Tenants",
+        "OrchardCore.Roles.Core",
+        "OrchardCore.Users",
+        "OrchardCore.Roles",
+        "OrchardCore.Resources",
+        "OrchardCore.Settings",
+        "OrchardCore.Contents",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Autoroute",
+        "OrchardCore.Widgets",
+        "OrchardCore.Flows",
+        "OrchardCore.Title",
+        "Lombiq.HelpfulExtensions.ContentTypes",
+        "Lombiq.HelpfulExtensions.Flows",
+        "Lombiq.HelpfulExtensions.GoogleTag",
+        "OrchardCore.Shortcodes",
+        "OrchardCore.ContentFields",
+        "OrchardCore.Markdown",
+        "OrchardCore.Html",
+        "Lombiq.HelpfulExtensions.Widgets",
+        "OrchardCore.Scripting",
+        "OrchardCore.Deployment",
+        "OrchardCore.Media",
+        "Lombiq.Hosting.MediaTheme.Bridge",
+        "Lombiq.Hosting.Tenants.Admin.Login.SubTenant",
+        "Lombiq.Hosting.Tenants.EnvironmentRobots",
+        "Lombiq.Hosting.Tenants.FeaturesGuard",
+        "Lombiq.Hosting.Tenants.Maintenance",
+        "OrchardCore.Queries.Core",
+        "OrchardCore.Elasticsearch",
+        "Lombiq.Hosting.Tenants.Maintenance.PurgeMediaCache",
+        "Lombiq.Hosting.Tenants.Maintenance.UpdateSiteUrl",
+        "OrchardCore.Recipes",
+        "Lombiq.Hosting.Tenants.MediaStorageManagement",
+        "Lombiq.Privacy",
+        "OrchardCore.CustomSettings",
+        "Lombiq.Privacy.ConsentBanner",
+        "OrchardCore.Media.Cache",
+        "OrchardCore.Queries",
+        "OrchardCore.Admin",
+        "OrchardCore.Alias",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.Contents.Deployment.AddToDeploymentPlan",
+        "OrchardCore.Deployment.Remote",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.Features",
+        "OrchardCore.Google.Analytics",
+        "OrchardCore.Rules",
+        "OrchardCore.Layers",
+        "OrchardCore.Lists",
+        "OrchardCore.Menu",
+        "OrchardCore.Navigation",
+        "OrchardCore.Security",
+        "OrchardCore.Themes",
+        "Lombiq.Hosting.Tenants.IdleTenantManagement.ShutDownIdleTenants",
+        "Lombiq.Hosting.MediaTheme",
+        "TheAdmin",
+        "SafeMode",
+        "TheBlogTheme",
+        "VirtualPhotonics.Theme"
+      ]
+    },
+    {
+      "name": "ReplaceContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "Menu",
+          "DisplayName": "Menu",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AliasPart",
+              "Name": "AliasPart",
+              "Settings": {
+                "AliasPartSettings": {
+                  "Pattern": "{{ ContentItem | display_text | slugify }}"
+                },
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MenuPart",
+              "Name": "MenuPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            },
+            {
+              "PartName": "MenuItemsListPart",
+              "Name": "MenuItemsListPart",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "LinkMenuItem",
+          "DisplayName": "Link Menu Item",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "MenuItem"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LinkMenuItemPart",
+              "Name": "LinkMenuItemPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "LinkMenuItem",
+              "Name": "LinkMenuItem",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MenuItemPermissionPart",
+              "Name": "MenuItemPermissionPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "ContentMenuItem",
+          "DisplayName": "Content Menu Item",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "MenuItem"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "ContentMenuItemPart",
+              "Name": "ContentMenuItemPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "ContentMenuItem",
+              "Name": "ContentMenuItem",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlMenuItem",
+          "DisplayName": "Html Menu Item",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Stereotype": "MenuItem"
+            },
+            "FullTextAspectSettings": {}
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "HtmlMenuItemPart",
+              "Name": "HtmlMenuItemPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "HtmlMenuItem",
+              "Name": "HtmlMenuItem",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            },
+            {
+              "PartName": "MenuItemPermissionPart",
+              "Name": "MenuItemPermissionPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Page",
+          "DisplayName": "Page",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": true,
+              "Listable": true,
+              "Draftable": true,
+              "Versionable": true,
+              "Securable": true,
+              "ThumbnailPath": "~/OrchardCore.ContentTypes/placeholder.png"
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Page",
+              "Name": "Page",
+              "Settings": {}
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                },
+                "AutoroutePartSettings": {
+                  "AllowCustomPath": true,
+                  "Pattern": "{{ ContentItem.DisplayText | slugify }}",
+                  "ShowHomepageOption": true,
+                  "AllowUpdatePath": false,
+                  "AllowDisabled": false,
+                  "AllowRouteContainedItems": false,
+                  "ManageContainedItemRoutes": false,
+                  "AllowAbsolutePath": false
+                }
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "Empty",
+          "DisplayName": "Empty",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Securable": false,
+              "Description": "A base content type for ad-hoc welding parts or fields on."
+            }
+          },
+          "ContentTypePartDefinitionRecords": []
+        },
+        {
+          "Name": "PrivacyConsentBannerSettings",
+          "DisplayName": "Privacy Consent Banner Settings",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "CustomSettings",
+              "Securable": false
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "ContainerWidget",
+          "DisplayName": "Container Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "0"
+                }
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "FlowPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Position": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlWidget",
+          "DisplayName": "Html Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "Editor": "Trumbowyg"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "LiquidWidget",
+          "DisplayName": "Liquid Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LiquidPart",
+              "Name": "LiquidPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "Liquid Part"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "MenuWidget",
+          "DisplayName": "Menu Navigation Provider Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true,
+              "Description": "Renders a menu whose contents are populated from INavigationProvider implementations that look for the \u0022menu\u0022 name (as opposed to admin menu navigation providers that use the \u0022admin\u0022 name)."
+            }
+          },
+          "ContentTypePartDefinitionRecords": []
+        },
+        {
+          "Name": "MarkdownWidget",
+          "DisplayName": "Markdown Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "MarkdownBodyPart",
+              "Name": "MarkdownBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "Markdown Part"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "ContentItemWidget",
+          "DisplayName": "Content Item Widget",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Stereotype": "Widget",
+              "Securable": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "ContentItemWidget",
+              "Name": "ContentItemWidget",
+              "Settings": {}
+            }
+          ]
+        },
+        {
+          "Name": "RawHtml",
+          "DisplayName": "Raw Html",
+          "Settings": {
+            "ContentTypeSettings": {
+              "Creatable": false,
+              "Listable": false,
+              "Draftable": false,
+              "Versionable": false,
+              "Securable": true,
+              "Description": "Html Widget without sanitize",
+              "Category": "Widget",
+              "ThumbnailPath": "~/OrchardCore.ContentTypes/placeholder.png"
+            },
+            "FullTextAspectSettings": {
+              "IncludeFullTextTemplate": false,
+              "IncludeBodyAspect": true,
+              "IncludeDisplayText": true
+            }
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "RawHtml",
+              "Name": "RawHtml",
+              "Settings": {}
+            },
+            {
+              "PartName": "HtmlBodyPart",
+              "Name": "HtmlBodyPart",
+              "Settings": {
+                "ContentTypePartSettings": {
+                  "DisplayName": "HtmlBody",
+                  "Position": "0"
+                },
+                "HtmlBodyPartSettings": {
+                  "SanitizeHtml": false,
+                  "RenderLiquid": false
+                },
+                "ElasticContentIndexSettings": {
+                  "Included": false
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "LiquidPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a Liquid formatted body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "CommonPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides an editor for the common properties of a content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "AutoroutePart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a custom url for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "WidgetsListPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a way to add widgets to Layout zones for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "FlowPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a customizable body for your content item where you can build a content structure with widgets."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "BagPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": true,
+              "Description": "Provides a collection behavior for your content item where you can place other content items."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "TitlePart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a Title for your content item.",
+              "DefaultPosition": "0"
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MarkdownBodyPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a Markdown formatted body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "HtmlBodyPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides an HTML Body for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "AliasPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a way to define custom aliases for content items."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "PreviewPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Provides a way to define the url that is used to render your content item for preview. You only need to use this for the content preview feature when running the frontend decoupled from the admin."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ListPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Reusable": false,
+              "Description": "Add a list behavior."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MenuPart",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MenuItemPart",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "LinkMenuItemPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Description": "Provides a menu link behavior for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ContentMenuItemPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "DisplayName": "Content Menu Item",
+              "Description": "Provides a menu link behavior with the Content Picker for your content item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "ContentPickerField",
+              "Name": "SelectedContentItem",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Selected Content Item",
+                  "Position": "0"
+                },
+                "ContentPickerFieldSettings": {
+                  "Required": true,
+                  "DisplayAllContentTypes": true,
+                  "DisplayedContentTypes": []
+                }
+              }
+            }
+          ]
+        },
+        {
+          "Name": "HtmlMenuItemPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "DisplayName": "Html Menu Item",
+              "Description": "Provides a menu link behavior with a field to display html for the link text."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "MenuItemPermissionPart",
+          "Settings": {
+            "ContentPartSettings": {
+              "Attachable": true,
+              "Description": "Provides a permission for the menu item."
+            }
+          },
+          "ContentPartFieldDefinitionRecords": []
+        },
+        {
+          "Name": "ContentItemWidget",
+          "Settings": {},
+          "ContentPartFieldDefinitionRecords": [
+            {
+              "FieldName": "ContentPickerField",
+              "Name": "ContentToDisplay",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Content to display"
+                },
+                "ContentPickerFieldSettings": {
+                  "Multiple": true,
+                  "DisplayAllContentTypes": true,
+                  "DisplayedContentTypes": [],
+                  "DisplayedStereotypes": [],
+                  "Placeholder": "",
+                  "TitlePattern": "{{ Model.ContentItem | display_text }}",
+                  "Required": false
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "DisplayType",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Display type"
+                }
+              }
+            },
+            {
+              "FieldName": "TextField",
+              "Name": "GroupId",
+              "Settings": {
+                "ContentPartFieldSettings": {
+                  "DisplayName": "Group ID"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "AdminSettings": {
+        "DisplayThemeToggler": true,
+        "DisplayMenuFilter": false,
+        "DisplayNewMenu": false,
+        "DisplayTitlesInTopbar": false
+      }
+    },
+    {
+      "name": "Layers",
+      "Layers": [
+        {
+          "Name": "Default",
+          "Description": "Default layer",
+          "LayerRule": {
+            "Conditions": [],
+            "ConditionId": "4prnv56jte77s67p0n75zrqbdx"
+          }
+        },
+        {
+          "Name": "Homepage",
+          "Description": "The widgets in this layer are only displayed on the homepage.",
+          "LayerRule": {
+            "Conditions": [
+              {
+                "$type": "OrchardCore.Rules.Models.HomepageCondition, OrchardCore.Rules",
+                "Value": true,
+                "Name": "HomepageCondition",
+                "ConditionId": "4txhp6y75dfr5zgc01vgve2eca"
+              }
+            ],
+            "ConditionId": "4wjdep924kawv0qc8jrfyhbd4w"
+          }
+        },
+        {
+          "Name": "Always",
+          "Description": "The widgets in this layer are displayed on any page of this site.",
+          "LayerRule": {
+            "Conditions": [
+              {
+                "$type": "OrchardCore.Rules.Models.BooleanCondition, OrchardCore.Rules",
+                "Value": true,
+                "Name": "BooleanCondition",
+                "ConditionId": "4rae720n5znhx7e1bdq98f43md"
+              }
+            ],
+            "ConditionId": "4jd56j7c4v7jd5axv5shswhfw7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "LayerSettings": {
+        "Zones": [
+          "Content",
+          "AsideRight",
+          "Footer"
+        ]
+      }
+    },
+    {
+      "name": "Content",
+      "data": [
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "HtmlWidget",
+          "DisplayText": "AsideRight",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "HtmlBodyPart": {
+            "Html": "\u003Cul\u003E\n\u003Cli\u003E\n\u003Ch3\u003EOur Supporters\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\u003Ca title=\u0022NIBIB\u0022 href=\u0022http://www.nibib.nih.gov/\u0022 target=\u0022_blank\u0022\u003E\u003Cimg height=\u002260\u0022 alt=\u0022\u0022 src=\u0022https://dotneststatic.com/media/virtualphotonicsprojectsite/images/NIH-NIBIB200.png\u0022\u003E [image]Images/NIH-NIBIB200.png[/image]\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca title=\u0022NIGMS\u0022 href=\u0022http://www.nigms.nih.gov/\u0022 target=\u0022_blank\u0022\u003E\u003Cimg height=\u002260\u0022 alt=\u0022\u0022 src=\u0022https://dotneststatic.com/media/virtualphotonicsprojectsite/images/NIH-NIGMS200.png\u0022\u003E [image]Images/NIH-NIGMS200.png[/image]\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3\u003EUseful Links\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca href=\u0022https://github.com/orgs/VirtualPhotonics/discussions\u0022 target=\u0022_blank\u0022 title=\u0022General Discussion\u0022\u003EGeneral Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/discussions\u0022 target=\u0022_blank\u0022 title=\u0022MCCL Discussion\u0022\u003EMCCL Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003EGUI Walkthroughs\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003E\u003C/a\u003E\u003Ca href=\u0022http://www.bli.uci.edu/\u0022 target=\u0022_blank\u0022 title=\u0022Beckman Laser Institute\u0022\u003EBeckman Laser Institute\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003Cli\u003E\n\u003Ch3 class=\u0022indent\u0022\u003E\u003Ca title=\u0022Archived Google Discussion\u0022 href=\u0022https://groups.google.com/forum/#!forum/virtual-photonics\u0022 target=\u0022_blank\u0022\u003EArchived Google Discussion\u003C/a\u003E\u003C/h3\u003E\n\u003C/li\u003E\n\u003C/ul\u003E"
+          },
+          "AdditionalStylingPart": {
+            "RemoveGridExtensionClasses": false,
+            "CustomClasses": null
+          },
+          "@WeldedPartSettings": {
+            "AdditionalStylingPart": {}
+          },
+          "LayerMetadata": {
+            "RenderTitle": false,
+            "Position": 1,
+            "Zone": "AsideRight",
+            "Layer": "Always"
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Software",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Software"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4rcbgm686f02z2969r7hm37wc9",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-17T02:24:35.8237722Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp class=\u0022software-tiles\u0022 style=\u0022margin-bottom: 20px\u0022\u003E\n\u003C/p\u003E\u003Cdiv class=\u0022section-wide left\u0022\u003E\n\u003Cdiv class=\u0022panel\u0022 style=\u0022border-width: 4px 2px 2px 4px\u0022\u003E\n\u003Cdiv\u003E\n\u003Cdiv class=\u0022image-side left\u0022\u003E\u003Ca href=\u0022/software-silverlight-gui\u0022 target=\u0022_self\u0022\u003E\u003Cimg src=\u0022/media/Images/wpf-gui.png\u0022 alt=\u0022\u0022 class=\u0022null\u0022 width=\u0022550\u0022\u003E\u003C/a\u003E\u003C/div\u003E\n\u003Cdiv class=\u0022description-horizontal\u0022\u003EWPF Application\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer left\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/releases\u0022 target=\u0022_blank\u0022\u003EDOWNLOAD WPF\u003C/a\u003E\u003Cbr\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer right\u0022\u003E\u003Ca href=\u0022/software-vts-gui\u0022\u003ELearn More\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022section-narrow right\u0022\u003E\n\u003Cdiv class=\u0022panel\u0022 style=\u0022background-color: rgba(211, 211, 211, 1)\u0022\u003E\n\u003Cdiv\u003E\n\u003Cdiv class=\u0022image-top\u0022\u003E\u003Ca href=\u0022/software-mie-simulator\u0022 target=\u0022_self\u0022\u003E\u003Cimg src=\u0022/media/Images/mie.jpg\u0022 class=\u0022null\u0022\u003E\u003C/a\u003E\u003C/div\u003E\n\u003Cdiv class=\u0022description\u0022\u003EMIE Simulator\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer left\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/MieSimulatorGui/wiki/Downloads\u0022 target=\u0022_blank\u0022\u003EDownload\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer right\u0022\u003E\u003Ca href=\u0022/software-mie-simulator\u0022\u003ELearn More\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022section-narrow right\u0022\u003E\n\u003Cdiv class=\u0022panel\u0022 style=\u0022border-width: 4px 4px 2px 2px\u0022\u003E\n\u003Cdiv\u003E\n\u003Cdiv class=\u0022image-top\u0022\u003E\u003Ca href=\u0022/software-mccl\u0022 target=\u0022_self\u0022\u003E\u003Cimg src=\u0022/media/Images/mccl.png\u0022 alt=\u0022\u0022 class=\u0022null\u0022 width=\u0022600\u0022\u003E\u003C/a\u003E\u003C/div\u003E\n\u003Cdiv class=\u0022description\u0022\u003EMCCL - Monte Carlo Command Line application\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer left\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/releases\u0022 target=\u0022_blank\u0022\u003EDownload\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer right\u0022\u003E\u003Ca href=\u0022/software-mccl\u0022\u003ELearn More\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022section-narrow left\u0022\u003E\n\u003Cdiv class=\u0022panel\u0022 style=\u0022border-width: 2px 2px 4px 4px\u0022\u003E\n\u003Cdiv\u003E\n\u003Cdiv class=\u0022image-top\u0022\u003E\u003Ca href=\u0022/software-cross-platform-gui\u0022 target=\u0022_self\u0022\u003E\u003Cimg src=\u0022/media/Images/ipad-gui.jpg\u0022 class=\u0022null\u0022\u003E\u003C/a\u003E\u003C/div\u003E\n\u003Cdiv class=\u0022description\u0022\u003ECross-Platform GUI\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer left\u0022\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer right\u0022\u003E\u003Ca href=\u0022/software-cross-platform-gui\u0022\u003ELearn More\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022section-middle left\u0022\u003E\n\u003Cdiv class=\u0022panel\u0022 style=\u0022border-width: 2px\u0022\u003E\n\u003Cdiv\u003E\n\u003Cdiv class=\u0022middle\u0022\u003E\u003Ca href=\u0022/software-concept\u0022 title=\u0022Software Concept\u0022\u003EVTS\u003C/a\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer left\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS\u0022 target=\u0022_blank\u0022\u003ECode\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer right\u0022\u003E\u003Ca href=\u0022/software-concept\u0022\u003ELearn More\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022section-wide left\u0022\u003E\n\u003Cdiv class=\u0022panel\u0022 style=\u0022border-width: 2px 4px 4px 2px\u0022\u003E\n\u003Cdiv class=\u0022image-side left\u0022\u003E\u003Ca href=\u0022/software-matlab-interoperability\u0022 target=\u0022_self\u0022\u003E\u003Cimg src=\u0022/media/Images/matlab.png\u0022 alt=\u0022\u0022 class=\u0022null\u0022 width=\u0022550\u0022\u003E\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022description-horizontal\u0022\u003EMATLAB Interoperability\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer left\u0022\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/releases\u0022 target=\u0022_blank\u0022\u003EDownload\u003C/a\u003E\u003C/div\u003E\n\u003Cdiv class=\u0022panel-footer right\u0022\u003E\u003Ca href=\u0022/software-matlab-interoperability\u0022\u003ELearn More\u003C/a\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cdiv class=\u0022clear\u0022\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003C/div\u003E\n\u003Cp\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Contact Us",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Contact Us"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "contact-us"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4m54973brcd07221a3wx8d255e",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T01:04:33.3256202Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Ch4 class=\u0022clearright\u0022\u003E\u003Cbr\u003EDiscussions\u003C/h4\u003E\n\u003Cp\u003EIf you have any questions about the Virtual Photonics Technology Initiative, create a\u0026nbsp;\u003Ca href=\u0022https://github.com/orgs/VirtualPhotonics/discussions\u0022 target=\u0022_blank\u0022 title=\u0022discussion\u0022\u003Ediscussion\u003C/a\u003E on our\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics\u0022 target=\u0022_blank\u0022 title=\u0022GitHub\u0022\u003EGitHub\u003C/a\u003E site\u0026nbsp;or\u0026nbsp;post to any of our open-source projects:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Cspan\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/discussions\u0022 target=\u0022_blank\u0022 title=\u0022Monte Carlo Discussions\u0022\u003EMonte Carlo Discussions\u003C/a\u003E\u003C/span\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Cspan\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/discussions\u0022 target=\u0022_blank\u0022 title=\u0022VTS Discussions\u0022\u003EVTS Discussions\u003C/a\u003E\u003C/span\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Cspan\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/MieSimulatorGUI/discussions\u0022 target=\u0022_blank\u0022 title=\u0022Mie Simulator Discussions\u0022\u003EMie Simulator Discussions\u003C/a\u003E\u003C/span\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/discussions\u0022 target=\u0022_blank\u0022 title=\u0022WPF GUI Discussions\u0022\u003EWPF GUI Discussions\u003C/a\u003E\u003C/li\u003E\u003C/ul\u003E\n\u003Ch4 style=\u0022padding-top: 1rem\u0022\u003ETeam\u003C/h4\u003E\n\u003Cp\u003EVasan Venugopalan\u003Cbr\u003EJerry Spanier\u003Cbr\u003ECarole Hayakawa\u003Cbr\u003EDavid Cuccia\u003Cbr\u003EJanaka Ranasinghesagara\u003Cbr\u003ELisa\u0026nbsp;Glover\u003C/p\u003E\n\u003Ch4\u003EBeckman Laser Institute\u003C/h4\u003E\n\u003Cp\u003E1002 Health Sciences Road\u003Cbr\u003EIrvine, CA 92612\u003C/p\u003E\n\u003Cp\u003ETel:\u0026nbsp;949.824.4713\u003Cbr\u003E Fax:\u0026nbsp;949.824.8413\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Developers",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Developers"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "developers"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "478rqrpveq8mszymvjczy5vtmx",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T01:51:37.5564235Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EThe VTS source code is located on GitHub, \u003Ca title=\u0022VTS on GitHub\u0022 href=\u0022https://github.com/VirtualPhotonics/VTS/wiki\u0022 target=\u0022_blank\u0022\u003Eclick here to go to the GitHub project site\u003C/a\u003E.\u003C/p\u003E\n\u003Cp\u003EFor detailed\u0026nbsp;instructions on downloading the source code, see the getting started\u0026nbsp;(\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Getting-Started-on-Linux\u0022 title=\u0022Getting Started Linux\u0022 target=\u0022_blank\u0022\u003ELinux\u003C/a\u003E, \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Getting-Started-on-Mac\u0022 title=\u0022Getting Started Mac\u0022 target=\u0022_blank\u0022\u003EMac\u003C/a\u003E, \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Getting-Started-in-Windows\u0022 title=\u0022Getting Started Windows\u0022 target=\u0022_blank\u0022\u003EWindows\u003C/a\u003E) pages.\u003C/p\u003E\n\u003Cp\u003E\u003Ca title=\u0022GitHub\u0022 href=\u0022https://github.com/VirtualPhotonics/\u0022 target=\u0022_blank\u0022\u003E\u003Cimg src=\u0022/media/Images/github.png\u0022 alt=\u0022GitHub\u0022 width=\u002280%\u0022 style=\u0022padding-left: 30px\u0022\u003E\u003C/a\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Python Scripting",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Python Scripting"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "python-scripting"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4rj7edrmj35kb3v9wqd7gb41xt",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:06:39.5174306Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:06:39.5174306Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003ESupport for Python scripting is available using PythonNET and Jupyter Notebooks.\u003C/p\u003E\n\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/python.png\u0022 alt=\u0022python\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EUse the samples in the repository to create your own plots.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Ch3\u003EThe supported platforms include:\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u0026nbsp;Linux\u003C/li\u003E\n\u003Cli\u003E\u0026nbsp;Mac OS\u003C/li\u003E\n\u003Cli\u003E\u0026nbsp;Windows\u003C/li\u003E\n\u003C/ul\u003E\n\u003C/blockquote\u003E\n\u003Cp\u003EVisit the\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.Scripting.Python\u0022 target=\u0022_blank\u0022 title=\u0022Vts.Scripting.Python\u0022\u003EVts.Scripting.Python\u003C/a\u003E repository on GitHub for more information and to download the current samples.\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "WPF Application",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "WPF Application"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-vts-gui"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4adev5a1grjvp6rnvam8gtbqca",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:13:39.6844564Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:13:39.6844564Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/phdwaxes.png\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EA Photon Hitting Density (PHD) map on the Fluence/Interrogration Panel of the GUI helps to understand how the light interrogates the tissue for a given probe design.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cp class=\u0022clearright\u0022\u003EOur Graphical User Interface (GUI) application provides a simple interface to access some basic functionality of the Virtual Tissue Simulator. The VTS GUI consists of five panels that provide tools to:\u003C/p\u003E\n\u003Cul style=\u0022list-style-type: none; list-style-image: none\u0022 class=\u0022clearright\u0022\u003E\n\u003Cli\u003E(1)\u003Cspan style=\u0022font-weight: bold\u0022\u003E Spectral Panel\u003C/span\u003E: calculates wavelength dependent absorption and scattering coefficients for user-specified tissue types,\u003C/li\u003E\n\u003Cli\u003E(2) \u003Cspan style=\u0022font-weight: bold\u0022\u003EForward Solver/Analysis Panel\u003C/span\u003E: computes and plots the spectral, spatial and/or temporal distributions of diffuse reflectance for user-specified solver type, tissue type and optical properties,\u003C/li\u003E\n\u003Cli\u003E(3) \u003Cspan style=\u0022font-weight: bold\u0022\u003EFluence/Interrogation Solver Panel\u003C/span\u003E: provides visualization of distributions of internal fluence, absorbed energy and photon hitting density,\u003C/li\u003E\n\u003Cli\u003E(4) \u003Cspan style=\u0022font-weight: bold\u0022\u003EInverse Solver Panel\u003C/span\u003E: determines optical properties given simulated measured data (with the option to add noise) and user-specified solver type, and\u003C/li\u003E\n\u003Cli\u003E(5) \u003Cspan style=\u0022font-weight: bold\u0022\u003EMonte Carlo Panel\u003C/span\u003E: provides ability to execute Monte Carlo simulations of reflectance and internal light fields.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Ch3\u003E\u003Cbr\u003EVTS\u0026nbsp;GUI Documentation\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022GUI Documentation\u0022 href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/wiki/Software\u0022 target=\u0022_blank\u0022\u003EDescription of the panels in the GUI Application\u003C/a\u003E\u0026nbsp;\u003Cbr\u003E \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003EVideo Walkthroughs\u0026nbsp;of the GUI Application\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Acknowledgement",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Acknowledgement"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "acknowledgement"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4cgw3e3xee9xb5xvyb2r968dng",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:16:22.7540656Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:16:22.7540656Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EUse the following citation or acknowledgement in publications or applications that make use of this open source software or underlying technology and research:\u003Cbr\u003E\u0022We acknowledge open-source software resources offered by the Virtual Photonics Technology Initiative (\u003Ca href=\u0022https://virtualphotonics.org\u0022 target=\u0022_blank\u0022\u003Ehttps://virtualphotonics.org\u003C/a\u003E), at the Beckman Laser Institute, University of California, Irvine.\u0022\u003C/p\u003E\n\u003Cp\u003EIn addition,\u0026nbsp;for\u0026nbsp;any\u0026nbsp;work that utilizes\u0026nbsp;the Virtual Photonics\u0026nbsp;Monte Carlo software,\u0026nbsp;cite the following publication:\u003Cbr\u003ECarole K. Hayakawa, Lisa Malenfant, Janaka C. Ranasinghesagara, David J. Cuccia, Jerome Spanier, Vasan Venugopalan, \u0022MCCL: an open-source software application for Monte Carlo simulations of radiative transport,\u0022 J. Biomed. Opt. 27(8) 083005 (12 April 2022)\u0026nbsp;\u003Ca href=\u0022https://doi.org/10.1117/1.JBO.27.8.083005\u0022 target=\u0022_blank\u0022\u003Ehttps://doi.org/10.1117/1.JBO.27.8.083005\u003C/a\u003E\u003C/p\u003E\n\u003Cp\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Monte Carlo Command Line",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Monte Carlo Command Line"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-mccl"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4e5552kkz15mqsn8q24g0vjqcf",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:18:40.931503Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:18:40.931503Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EThe Monte Carlo Command Line (MCCL) application provides a command-line environment that gives users access to the full capabilities of the Monte Carlo software beyond those provided by the GUI. Unlike the GUI, users have access to a large variety of sources, tissues and detectors that they can specify within a input infile. The source specifications include point, surface or volume sources placed outside or within the tissue volume. The tissue itself can be homogeneous, multi-layered or have an objects in the shape of ellipsoids. Detectors available include surface reflectance/transmittance detectors, internal radiance or fluence detectors and can be defined in terms of cylindrical or Cartesian coordinate systems as a function of space, time, angle, spatial-frequency, temporal-frequency and their combinations. After running the Monte Carlo simulation, MATLAB scripts are available to visualize the results.\u003C/p\u003E\n\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/dawfcnofn.png\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EPlots generated using MCCL showing estimates of fluence using cylindrical coordinates for increasing number of photons, N.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cp\u003EIn addition, post-processing capabilities are part of the MCCL download. The Monte Carlo Post-Processor (MCPP) allows a user to run a simulation and save pertinent information to database files. The post-processor can then be launched to read the database and generate detector results. This database file can be reread any number of times and will produce results much more quickly than running an independent MCCL simulation. Perturbation Monte Carlo (pMC) and differential Monte Carlo (dMC) can also be specified in the MCCL infile and will determine detector results for tissues with slightly different optical properties than those specified for the original database. This enables the user to run inverse solutions using pMC and dMC.\u003C/p\u003E\n\u003Cp\u003EThis is a beta release of our Monte Carlo command-line application which provides users additional Monte Carlo simulation capability over that presented in the Silverlight GUI application. Documentation and additional resources can all be accessed from the\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS.MonteCarlo/wiki/MCCL-Getting-Started\u0022 title=\u0022MCCL Documentation\u0022 target=\u0022_blank\u0022\u003EGitHub\u003C/a\u003E\u003Cspan style=\u0022color: rgba(51, 51, 51, 1); font-family: Calibri, Tahoma, sans-serif; font-size: 16px\u0022\u003E\u0026nbsp;site.\u003C/span\u003E\u003C/p\u003E\n\u003Ch3\u003EDocumentation for Monte Carlo Command Line (MCCL) Application\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/wiki/MCCL-Editing-infiles\u0022 target=\u0022_blank\u0022\u003EEditing Monte Carlo Command Line infiles\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/wiki/MCCL-Examples\u0022 target=\u0022_blank\u0022\u003ERunning MCCL\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/wiki/MCCL-Capabilities-And-Implementation\u0022 target=\u0022_blank\u0022\u003ECapabilities and Implementation of Conventional Monte Carlo\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Silverlight Application",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Silverlight Application"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-silverlight-gui"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4qv2jfnv91d7k3g5trfv023fdh",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:21:49.4634004Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:21:49.4634004Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/phdwaxes.png\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EA Photon Hitting Density (PHD) map on the Fluence/Interrogration Panel of the GUI helps to understand how the light interrogates the tissue for a given probe design.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cp class=\u0022clearright\u0022\u003EThe first\u0026nbsp;Graphical User Interface (GUI) application of the Virtual Tissue Simulator was written using Microsoft Silverlight and was a web-based application. This technology was retired in 2020 so a few years prior to that date, we ported the application to Windows Presentation Foundation (WPF). The\u0026nbsp;\u003Ca href=\u0022software-vts-gui\u0022 title=\u0022VTS GUI\u0022\u003EVTS application\u003C/a\u003E is available as a\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/releases\u0022 target=\u0022_blank\u0022 title=\u0022VTS GUI download\u0022\u003Edownload\u003C/a\u003E and has the same functionality as the original web-based application.\u003C/p\u003E\n\u003Ch3\u003EVTS\u0026nbsp;GUI Documentation\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022GUI Documentation\u0022 href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/wiki/Software\u0022 target=\u0022_blank\u0022\u003EDescription of the panels in the GUI Application\u003C/a\u003E\u0026nbsp;\u003Cbr\u003E \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003EVideo Walkthroughs\u0026nbsp;of the GUI Application\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Documentation",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Documentation"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "documentation"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4fk916r3955t801wkcsts4je50",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:29:02.9946361Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EThere are\u0026nbsp;4 categories of documentation, the first is\u0026nbsp;for users of the \u003Ca title=\u0022VTS GUI Application\u0022 href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/releases\u0022 target=\u0022_blank\u0022\u003EGUI\u003C/a\u003E\u0026nbsp;and provides\u0026nbsp;educational resources regarding the underlying solution methods, the second is for users of the \u003Ca title=\u0022MCCL\u0022 href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/releases\u0022 target=\u0022_blank\u0022\u003EMonte Carlo Command Line\u003C/a\u003E (MCCL) application, the third is for Windows MATLAB users to access the VTS libraries using the \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/releases\u0022 title=\u0022VTS MATLAB Package\u0022 target=\u0022_blank\u0022\u003EVTS MATLAB Package\u003C/a\u003E, and the fourth is for developers wishing to access and/or modify the source code.\u003C/p\u003E\n\u003Ch3\u003EVTS GUI Documentation\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp; \u0026nbsp; \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u003Ca title=\u0022GUI Documentation\u0022 href=\u0022https://github.com/VirtualPhotonics/Vts.Gui.Wpf/wiki/Software\u0022 target=\u0022_blank\u0022\u003EDescription of the panels in the GUI Application\u003C/a\u003E\u0026nbsp;\u003Cbr\u003E \u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022Videos\u0022 href=\u0022video\u0022\u003EVideo Walkthroughs\u0026nbsp;of the GUI Application\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E\n\u003Ch3\u003EDocumentation for Monte Carlo Command Line (MCCL) Application\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/wiki/MCCL-Editing-infiles\u0022 target=\u0022_blank\u0022 title=\u0022Editing infiles \u0022\u003EEditing Monte Carlo Command Line infiles\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/wiki/MCCL-Examples\u0022 target=\u0022_blank\u0022 title=\u0022Running MCCL\u0022\u003ERunning MCCL\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/Vts.MonteCarlo/wiki/MCCL-Capabilities-And-Implementation\u0022 target=\u0022_blank\u0022 title=\u0022Capabilities and Implementation of Conventional Monte Carlo\u0022\u003ECapabilities and Implementation of Conventional Monte Carlo\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E\n\u003Ch3\u003EDocumentation for VTS MATLAB Package\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022Getting Started MATLAB\u0022 href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/VTS-MATLAB\u0022 target=\u0022_blank\u0022\u003EGetting Started with MATLAB\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E\n\u003Ch3\u003EInstructions for VTS Source Code Download and Use\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; Getting Started\u0026nbsp;(\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Getting-Started-on-Linux\u0022 title=\u0022Getting Started Linux\u0022 target=\u0022_blank\u0022\u003ELinux\u003C/a\u003E, \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Getting-Started-on-Mac\u0022 title=\u0022Getting Started Mac\u0022 target=\u0022_blank\u0022\u003EMac\u003C/a\u003E, \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Getting-Started-in-Windows\u0022 title=\u0022Getting Started Windows\u0022 target=\u0022_blank\u0022\u003EWindows\u003C/a\u003E)\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Coding-Conventions\u0022 title=\u0022Coding Conventions\u0022 target=\u0022_blank\u0022\u003ECoding Conventions\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Compile-and-run-the-VTS\u0022 title=\u0022Compile and Run VTS\u0022 target=\u0022_blank\u0022\u003ECompiling and running the VTS\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Without-Visual-Studio\u0022 title=\u0022Without Visual Studio\u0022 target=\u0022_blank\u0022\u003EBuild, Test and Run the VTS without Visual Studio\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Visual-Studio-XML-Comment-Tags\u0022 title=\u0022XML Comments\u0022 target=\u0022_blank\u0022\u003EDocumenting Source Code\u003C/a\u003E\u003Cbr\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/Adding-a-New-Forward-Solver-to-the-VTS\u0022 title=\u0022Adding Forward Solver\u0022 target=\u0022_blank\u0022\u003EAdding a New Forward Solver\u003C/a\u003E\u003Cbr\u003E\n\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca href=\u0022https://virtualphotonics.github.io/VTS/vts/\u0022 target=\u0022_blank\u0022\u003EMSDN Style\u0026nbsp;Developer Documentation\u003C/a\u003E\u0026nbsp;\u003C/p\u003E\n\u003C/blockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Menu",
+          "DisplayText": "Main Menu",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "TitlePart": {
+            "Title": "Main Menu"
+          },
+          "AliasPart": {
+            "Alias": "main-menu"
+          },
+          "MenuPart": {},
+          "MenuItemsListPart": {
+            "MenuItems": [
+              {
+                "ContentItemId": "4t40k20j2ynprxwwr3bf4y295m",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "DisplayText": "Home",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Url": "/",
+                  "Target": null
+                },
+                "LinkMenuItem": {},
+                "MenuItemPermissionPart": {
+                  "PermissionNames": []
+                }
+              },
+              {
+                "ContentItemId": "452kzkzp1tvnxshsqa5tj73n5a",
+                "ContentItemVersionId": null,
+                "ContentType": "ContentMenuItem",
+                "DisplayText": "Software",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "ContentMenuItemPart": {
+                  "CheckContentPermissions": false,
+                  "SelectedContentItem": {
+                    "ContentItemIds": [
+                      "4k6fn4f5ptbssz88ct67ydtzwn"
+                    ]
+                  }
+                },
+                "ContentMenuItem": {}
+              },
+              {
+                "ContentItemId": "43fr8s249e89kyvkzt9km5vmw4",
+                "ContentItemVersionId": null,
+                "ContentType": "LinkMenuItem",
+                "DisplayText": "Education",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "LinkMenuItemPart": {
+                  "Url": "https://virtualphotonicseducation.dotnest.net/",
+                  "Target": null
+                },
+                "LinkMenuItem": {},
+                "MenuItemPermissionPart": {
+                  "PermissionNames": []
+                }
+              },
+              {
+                "ContentItemId": "4n8pwjs46v1tgtpth3spnxqswe",
+                "ContentItemVersionId": null,
+                "ContentType": "ContentMenuItem",
+                "DisplayText": "Developers",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "ContentMenuItemPart": {
+                  "CheckContentPermissions": false,
+                  "SelectedContentItem": {
+                    "ContentItemIds": [
+                      "4q9exa9k78fxg26ng13c8619xd"
+                    ]
+                  }
+                },
+                "ContentMenuItem": {}
+              },
+              {
+                "ContentItemId": "4fhqsrqnqgx3ytv5a14wkmwrmh",
+                "ContentItemVersionId": null,
+                "ContentType": "ContentMenuItem",
+                "DisplayText": "Documentation",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "ContentMenuItemPart": {
+                  "CheckContentPermissions": false,
+                  "SelectedContentItem": {
+                    "ContentItemIds": [
+                      "4katgkds480tqv7rg0aa4z7bmq"
+                    ]
+                  }
+                },
+                "ContentMenuItem": {}
+              },
+              {
+                "ContentItemId": "4acdc5g87hzfa7sdnwb4x91k5h",
+                "ContentItemVersionId": null,
+                "ContentType": "ContentMenuItem",
+                "DisplayText": "Acknowledgement",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "ContentMenuItemPart": {
+                  "CheckContentPermissions": false,
+                  "SelectedContentItem": {
+                    "ContentItemIds": [
+                      "4za050tv7kq6jxj6e0vrycknnf"
+                    ]
+                  }
+                },
+                "ContentMenuItem": {}
+              },
+              {
+                "ContentItemId": "4td5zdt4vwwc8t48dn952xsvd1",
+                "ContentItemVersionId": null,
+                "ContentType": "ContentMenuItem",
+                "DisplayText": "Contact Us",
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": null,
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "ContentMenuItemPart": {
+                  "CheckContentPermissions": false,
+                  "SelectedContentItem": {
+                    "ContentItemIds": [
+                      "4bbq318rtaecbr0kmrgy2909xw"
+                    ]
+                  }
+                },
+                "ContentMenuItem": {}
+              }
+            ]
+          },
+          "@WeldedPartSettings": {
+            "MenuPart": {
+              "Position": "3"
+            },
+            "MenuItemsListPart": {
+              "Position": "4"
+            }
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "MATLAB Interoperability",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "MATLAB Interoperability"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-matlab-interoperability"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4phd1h98h9hz5s3mdv859aycmc",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:33:57.4497891Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/fluvsrhozft.png\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EExample plot provided by vts_solver_demo.m script file showing fluence in cylindrical coordinates determined by SDA using 1 GHz source.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cp\u003EThe MATLAB interoperability software enables MATLAB users to access VTS libraries. The software includes two demo scripts that provide examples of how to write MATLAB commands to produce results (e.g. reflectance) using the analytic solvers or the Monte Carlo capabilities within the VTS.\u003C/p\u003E\n\u003Cp\u003EThis is a beta release of our MATLAB interoperability package that works with the Windows version of MATLAB. Documentation and additional resources can all be accessed from the\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics/VTS/wiki\u0022 title=\u0022MATLAB Documentation\u0022 target=\u0022_blank\u0022\u003EGitHub\u003C/a\u003E\u0026nbsp;site.\u003C/p\u003E\n\u003Ch3\u003EDocumentation for VTS MATLAB Package\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cp\u003E\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp; \u003Ca title=\u0022Getting Started MATLAB\u0022 href=\u0022https://github.com/VirtualPhotonics/VTS/wiki/VTS-MATLAB\u0022 target=\u0022_blank\u0022\u003EGetting Started with MATLAB\u003C/a\u003E\u003C/p\u003E\n\u003C/blockquote\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Cross-Platform GUI",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Cross-Platform GUI"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-cross-platform-gui"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4vj28y25f5bx3z8fs4xnnxg4c2",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:35:35.2696394Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:35:35.2696394Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EDevelopment of a new cross-platform GUI is currently in progress. The new GUI will initially provide the Forward Solver Panel capabilities.\u003C/p\u003E\n\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/iPadGUI.jpg\u0022 alt=\u0022\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EThe cross-platform GUI can be accessed from any web browser on any platform, including mobile.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Ch3\u003EThe supported platforms include:\u003C/h3\u003E\n\u003Cblockquote\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u0026nbsp;iOS\u003C/li\u003E\n\u003Cli\u003E\u0026nbsp;Android\u003C/li\u003E\n\u003Cli\u003E\u0026nbsp;Linux\u003C/li\u003E\n\u003Cli\u003E\u0026nbsp;Mac OS X\u003C/li\u003E\n\u003Cli\u003E\u0026nbsp;Windows\u003C/li\u003E\n\u003C/ul\u003E\n\u003C/blockquote\u003E\n\u003Cp\u003EIt is written in C# as an ASP.NET web application using HTML 5 and JQuery and utilizes the existing VTS library. We also plan to implement redesigned versions of all our current \u003Ca href=\u0022/software-silverlight-gui\u0022 title=\u0022Silverlight GUI\u0022\u003ESilverlight GUI\u003C/a\u003E panels.\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Mie Simulator",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Mie Simulator"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-mie-simulator"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4n4tpa0ywscfx1989k7jt56acv",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:37:45.9713506Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:37:45.9713506Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cdiv class=\u0022software-images\u0022\u003E\u003Cimg src=\u0022media/Images/phase.jpg\u0022 width=\u0022100%\u0022\u003E\u003Cbr\u003E\n\u003Cdiv\u003E\u003Cspan style=\u0022font-style: italic\u0022\u003EThe phase function panel is one of the plots of the Mie Simulator. \u0026nbsp;The user can plot phase functions for wavelengths selected using the slider bar as shown above.\u003C/span\u003E\u003C/div\u003E\n\u003C/div\u003E\n\u003Cp\u003EThe Mie Simulator provides a tool for calculating the characteristics of Mie scatterers. The tool calculates the spectral dependence of the scattering coefficient, scattering cross section, reduced scattering coefficient, phase function, average cosine of the phase function, and scattering matrix entries for a single or series of wavelengths. These calculations can be run for mono-disperse and poly-disperse distributions based on Lorentz-Mie solution. The tool is also capable of estimating fitting parameters from the reduced scattering coefficient curve and is limited to the characteristics of the far-field scattering pattern. The Mie Simulator algorithm is based on the BHMIE code available from Bohren and Huffman.\u003C/p\u003E\n\u003Cp\u003EThis is a beta release of \u003Ca href=\u0022https://github.com/VirtualPhotonics/MieSimulatorGui/wiki/Downloads\u0022 target=\u0022_blank\u0022\u003EMie simulator GUI\u003C/a\u003E we developed for virtual photonics workshops. Documentation and additional resources can all be accessed from the\u0026nbsp;\u003Ca href=\u0022https://github.com/VirtualPhotonics/MieSimulatorGui/wiki\u0022 target=\u0022_blank\u0022\u003EGitHub\u003C/a\u003E\u0026nbsp;site.\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Software Concept",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Software Concept"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "software-concept"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4nbyqs274z6e9103qdtrwds2w2",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:40:09.7778229Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:40:09.7778229Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Ch4 class=\u0022clearright\u0022\u003E\u003Cbr\u003EVirtual Tissue Simulator (VTS)\u0026nbsp;\u003C/h4\u003E\n\u003Cp class=\u0022clearright\u0022\u003E\u003Cimg style=\u0022float: right; padding-left: 20px\u0022 alt=\u0022VTS\u0022 src=\u0022media/Images/Capture.png\u0022 usemap=\u0022#vtsmap\u0022\u003E \u003Cmap name=\u0022vtsmap\u0022\u003E \n\u003Carea href=\u0022/optimization-layer\u0022 shape=\u0022rect\u0022 alt=\u0022Optimization Layer\u0022 coords=\u002220,0,198,48\u0022\u003E\n \n\u003Carea href=\u0022/analysis-layer\u0022 shape=\u0022rect\u0022 alt=\u0022Analysis Layer\u0022 coords=\u002220,0,198,92\u0022\u003E\n \n\u003Carea href=\u0022/solver-layer\u0022 shape=\u0022rect\u0022 alt=\u0022Solver Layer\u0022 coords=\u002220,0,198,135\u0022\u003E\n \n\u003Carea href=\u0022/problem-definition-layer\u0022 shape=\u0022rect\u0022 alt=\u0022Problem Definition Layer\u0022 coords=\u002220,0,198,179\u0022\u003E\n \n\u003Carea href=\u0022/visualization-layer\u0022 shape=\u0022rect\u0022 alt=\u0022Visualization Layer\u0022 coords=\u0022198,0,234,179\u0022\u003E\n \u003C/map\u003EThe development of the Virtual Tissue Simulator (VTS) is meant to provide a modular and scalable computational platform, the \u0027Virtual Tissue Simulator\u0027 (VTS), to provide an integrated suite of computational tools to define, solve, visualize, and analyze relevant forward and inverse radiative transport problems in biomedical optics.\u003C/p\u003E\n\u003Cdiv class=\u0022controls\u0022\u003E\n\u003Cp class=\u0022clearright\u0022\u003EThe design of the VTS is modular and composed of four layers that carry out (a) \u003Ca href=\u0022/problem-definition-layer\u0022\u003EProblem Definition\u003C/a\u003E; (b) (forward problem) \u003Ca href=\u0022/solver-layer\u0022\u003ESolver\u003C/a\u003E; (c) \u003Ca href=\u0022/analysis-layer\u0022\u003EAnalysis\u003C/a\u003E; and (d) \u003Ca href=\u0022/optimization-layer\u0022\u003EOptimization\u003C/a\u003E (inverse problem) tasks. The \u003Ca href=\u0022/visualization-layer\u0022\u003EVisualization\u003C/a\u003E layer facilitates input and output associated with each of these layers. For detailed information on the capabilities and foundations of each of these layers please click on the appropriate link above.\u003C/p\u003E\n\u003Ch4 class=\u0022clearright\u0022\u003E\u003C/h4\u003E\n\u003C/div\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Analysis Layer",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Analysis Layer"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "analysis-layer"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4hnkjygz2gn1b6xkyc5eqjsmwm",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:43:20.8193536Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:43:20.8193536Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp class=\u0022clearright\u0022\u003EThe analysis module provides the opportunity to examine various aspects of the radiative transport solutions provided by the solver output. This layer provides three general classes of analysis related to:\u003C/p\u003E\n\u003Cul style=\u0022list-style-type: none; list-style-image: none\u0022 class=\u0022clearright\u0022\u003E\n\u003Cli\u003E(a) \u003Cstrong\u003Eperturbation\u003C/strong\u003E;\u003C/li\u003E\n\u003Cli\u003E(b) \u003Cstrong\u003Esensitivity\u003C/strong\u003E; and\u003C/li\u003E\n\u003Cli\u003E(c) \u003Cstrong\u003Einterrogation\u003C/strong\u003E characteristics of the internal and/or remitted light field.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp class=\u0022clearright\u0022\u003ESpecifically the \u003Cstrong\u003Eperturbation\u003C/strong\u003E capabilities provide the ability to examine changes in the internal radiant field or remitted light due to perturbations in optical properties or size of internal structures. The sensitivity capabilities provide derivative information (elements of a Jacobian matrix) of the radiative transport solution that is used in gradient-based optimization algorithms. Finally, interrogation capabilities provide solutions to a 3-location transport problem that provides metrics for how specific source-detector configurations optically sample or \u0027interrogate\u0027 a desired target tissue volume of interest. Reference materials related to these capabilities are shown following a graphical representation of this module below.\u003C/p\u003E\n\u003Cp\u003E\u003Cimg alt=\u0022analysis layer\u0022 src=\u0022media/Images/analysis.png\u0022\u003E\u003C/p\u003E\n\u003Cp\u003E\u003Ca href=\u0022analysis-references\u0022 title=\u0022References\u0022\u003EReferences\u003C/a\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Analysis References",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Analysis References"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "analysis-references"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4ygejzg6qdjqx58fscbzbxnbxw",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:44:50.4318719Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:44:50.4318719Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Ch3\u003EPerturbation Analysis\u003C/h3\u003E\n\u003Cp\u003E[1] S. C. Feng, F. A. Zeng, B. C. Chance. Photon migration in the presence of a single defect - A perturbation analysis. \u003Cem\u003EApplied Optics\u003C/em\u003E, 34(19):3426-3837, 1995. \u003Cbr\u003E\u003Cbr\u003E[2] S. A. Arridge and J. C. Hebden. Optical imaging in medicine - 2. Modeling and reconstruction. \u003Cem\u003EPhysics in Medicine and Biology\u003C/em\u003E, 42(5):841-853, 1997. \u003Cbr\u003E\u003Cbr\u003E[3] C. K. Hayakawa, J. Spanier, F. Bevilacqua, A. K. Dunn, J. S. You, B. J. Tromberg, and V. Venugopalan. Perturbation Monte Carlo methods to solve photon migration problems in heterogeneous tissues. \u003Cem\u003EOptics Letters\u003C/em\u003E, 26(17):1335-1337, 2001.\u003C/p\u003E\n\u003Ch3\u003ESensitivity Analysis\u003C/h3\u003E\n\u003Cp\u003E[4] S. A. Arridge and J. C. Hebden. Optical imaging in medicine - 2. Modeling and reconstruction. \u003Cem\u003EPhysics in Medicine and Biology\u003C/em\u003E, 42(5):841-853, 1997. \u003Cbr\u003E\u003Cbr\u003E[5] D. Y. Churmakov, I. V. Meglinski, and D. A. Greenhalgh. Influence of refractive index matching on the photon diffuse reflectance.\u003Cem\u003E Physics in Medicine and Biology\u003C/em\u003E, 47(23):4271-4285, 2002.\u003C/p\u003E\n\u003Ch3\u003EForward-Adjoint Methods\u003C/h3\u003E\n\u003Cp\u003E[6] M. L. Williams. Generalized contribution response theory. \u003Cem\u003ENuclear Science and Engineering\u003C/em\u003E, 108(4):355-383, 1991. \u003Cbr\u003E\u003Cbr\u003E[7] S. N. Cramer. Forward-adjoint Monte Carlo coupling with no statistical error propagation. \u003Cem\u003ENuclear Science and Engineering\u003C/em\u003E, 124(3):398-416, 1996.\u003C/p\u003E\n\u003Ch3\u003EInterrogation\u003C/h3\u003E\n\u003Cp\u003E[8] J. C. Schotland, J. C. Haselgrove, J. S. Leigh. Photon hitting density. \u003Cem\u003EApplied Optics\u003C/em\u003E, 32(4):448-453, 1993. \u003Cbr\u003E\u003Cbr\u003E[9] Hayakawa, C. K., J. Spanier, and V. Venugopalan. Coupled forward-adjoint Monte Carlo simulations of radiative transport for the study of optical probe design in heterogeneous tissues. \u003Cem\u003ESIAM Journal of Applied Mathematics\u003C/em\u003E. 68(1):253-270, 2007.\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "References",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "References"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "references"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4y855zz04fbzdvp0jfaw48kbnp",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:45:38.7689023Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:45:38.7689023Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Ch3\u003EStandard Diffusion Approximation (SDA, P1)\u003C/h3\u003E\n\u003Cp\u003E[1] R. C. Haskell, L. O. Svaasand, T-T. Tsay, T-C. Feng, M. S. McAdams, and B. J. Tromberg. Boundary conditions for the diffusion equation in radiative transfer. Journal of the Optical Society of America A, 11(10):2727-2741, 1994.\u003C/p\u003E\n\u003Cp\u003E[2] Kienle, L. Lilge, M. S. Patterson, R. Hibst, R. Steiner, and B. C. Wilson. Spatially resolved absolute diffuse reflectance measurements for noninvasive determination of the optical scattering and absorption coefficients of biological tissue. Applied Optics, 35(13):2304-2314, 1996.\u003C/p\u003E\n\u003Cp\u003E[3] Kienle and M. Patterson. Improved solutions of the steady-state and the time-resolved diffusion equations for reflectance from a semi-infinite turbid medium. Journal of the Optical Society of America A, 14(1):246-254, 1997.\u003C/p\u003E\n\u003Cp\u003E[4] Kienle and M. Patterson. Determination of the optical properties of semi-infinite turbid media from frequency-domain reflectance close to the source. Physics in Medicine and Biology, 42(9):1801-1819, 1997.\u003C/p\u003E\n\u003Cp\u003E[5] Kienle, T. Glanzmann, G. Wagni\u00E8res, and H. van den Bergh. Investigation of two-layered turbid media with time-resolved reflectance. Applied Optics, 37(28):6852-6862, 1998.\u003C/p\u003E\n\u003Cp\u003E[6] Kienle and T. Glanzmann. In vivo determination of the optical properties of muscle with time-resolved reflectance using a layered model. Physics in Medicine and Biology, 44(11):2689-2702, 1999.\u003C/p\u003E\n\u003Cp\u003E\u003Ca name=\u0022Higher\u0022\u003E\u003C/a\u003E\u003C/p\u003E\n\u003Ch3\u003EHigher-Order \u0027Diffusion\u0027 Solvers (PN/\u03B4-PN)\u003C/h3\u003E\n\u003Cp\u003E[7] W. M. Star. Comparing the P3-approximation with diffusion theory and with Monte Carlo calculations of light propagation in a slab geometry. SPIE Institute Series, IS 5:146-154, 1989.\u003C/p\u003E\n\u003Cp\u003E[8] V. Venugopalan, J. S. You, and B. J. Tromberg. Radiative transport in the diffusion approximation: An extension for highly absorbing media and small source detector separations. Physical Review E, 58(2):2395-2407, 1998.\u003C/p\u003E\n\u003Cp\u003E[9] T. Spott and L. O. Svassand. Collimated sources in the diffusion approximation. Applied Optics, 39(34):6453-6465, 2000.\u003C/p\u003E\n\u003Cp\u003E[10] E. L. Hull and T. H. Foster. Steady-state reflectance spectroscopy in the P3 approximation. Journal of the Optical Society of America A, 18(3):584-599, 2001.\u003C/p\u003E\n\u003Cp\u003E[11] S. A. Carp, S. A. Prahl, and V. Venugopalan. Radiative transport in the delta-P1 approximation: Accuracy of fluence rate and optical penetration depth predictions in turbid semi-infinite media. Journal of Biomedical Optics, 9(3):632-647, 2004.\u003C/p\u003E\n\u003Cp\u003E[12] G. W. Faris. P3 approximation for frequency-domain measurements in scattering media. Applied Optics, 44(11):2058-2071, 2005.\u003C/p\u003E\n\u003Cp\u003E[13] I. Seo, C. K. Hayakawa, and V. Venugopalan. Radiative transport in the delta-P1 approximation for semi-infinite turbid media. Medical Physics, 35(2):681-693, 2008.\u003C/p\u003E\n\u003Cp\u003E\u003Ca name=\u0022Conventional\u0022\u003E\u003C/a\u003E\u003C/p\u003E\n\u003Ch3\u003EConventional Monte Carlo\u003C/h3\u003E\n\u003Cp\u003E[14] J. Spanier and E. M. Gelbard. Monte Carlo Principles and Neutron Transport Problems. Addison Wesley Publishing Co. 1969. (Re-issued in 2008 by Dover Publications)\u003C/p\u003E\n\u003Cp\u003E[15] B. C. Wilson and G. Adam. A Monte Carlo model for the absorption and flux distributions of light in tissue. Medical Physics, 10(6):824-830, 1983.\u003C/p\u003E\n\u003Cp\u003E[16] S. A. Prahl, M. Keijzer, S. L. Jacques, and A. J. Welch A Monte Carlo Model of Light Propagation in Tissue. SPIE Institute Series, IS 5:102-111, 1989.\u003C/p\u003E\n\u003Cp\u003E[17] L. H. Wang, S. L. Jacques, and L. Q. Zheng. MCML-Monte Carlo modeling of light transport in multilayered tissues. Computer Methods and Programs in Biomedicine, 47(2):131-146, 1995.\u003C/p\u003E\n\u003Cp\u003E[18] L. H. Wang, S. L. Jacques, and L. Q. Zheng. CONV-Convolution for responses to a finite diameter photon beam incident on multi-layered tissues. Computer Methods and Programs in Biomedicine, 54(3):141-150, 1996.\u003C/p\u003E\n\u003Cp\u003E[19] S. L. Jacques and L. Wang. \u0022Monte Carlo Modeling of Light Transport in Tissues\u0022, In Optical-Thermal Response of Laser-Irradiated Tissue, A. J. Welch and M. J. C van Gemert, Editors, Plenum Press, 1995.\u003C/p\u003E\n\u003Ch3\u003ECondensed History Monte Carlo\u003C/h3\u003E\n\u003Cp\u003E[20] K. Bhan and J. Spanier. Condensed history Monte Carlo methods for photon transport problems. Journal of Computational Physics, 225(2):1673-1694, 2007.\u003C/p\u003E\n\u003Ch3\u003EElectric Field Monte Carlo\u003C/h3\u003E\n\u003Cp\u003E[21] M. Xu. Electric field Monte Carlo simulation of polarized light propagation in turbid media. Optics Express, 12(26):6530-6539, 2004.\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Monte Carlo GUI Mock-up",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Monte Carlo GUI Mock-up"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "new"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4w1eptfd2fv2p2ccs99ae3h7m1",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:47:12.2162534Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:47:12.2162534Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EThis is a mock-up of our upcoming Monte Carlo GUI, it is currently in the design stage but development of the actual Silverlight GUI will commence later this month.\u003C/p\u003E\n\u003Cp\u003E\u003C/p\u003E\n\u003Cp\u003EIf you have any comments or suggestions, please voice them on our YouTube page \u003Ca href=\u0022http://www.youtube.com/watch?v=lWj3lLrt7wA\u0022 target=\u0022_blank\u0022\u003Ehttp://www.youtube.com/watch?v=lWj3lLrt7wA\u003C/a\u003E.\u0026nbsp;\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Optimization Layer",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Optimization Layer"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "optimization-layer"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "42z9ky54r1y2kxcw245vs5ypwr",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:49:21.8410453Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:49:21.8410453Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp class=\u0022clearright\u0022\u003EThis module of the VTS will provide capabilities for:\u003C/p\u003E\n\u003Cul style=\u0022list-style-type: none; list-style-image: none\u0022\u003E\n\u003Cli\u003E(a) optical/physiological property recovery;\u003C/li\u003E\n\u003Cli\u003E(b) image reconstruction; and\u003C/li\u003E\n\u003Cli\u003E(c) design of optical measurements and instrumentation.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp class=\u0022clearright\u0022\u003EBased on the problem specified in the \u003Ca href=\u0022/problem-definition-layer\u0022\u003EProblem Definition Layer\u003C/a\u003E the user will be able to supply either experimental data, or solver data combined with simulated experimental noise, to determine the ability of a given measurement configuration to provide the recover optical/physiological properties or render an optical image with sufficient fidelity. A graphical representation of this layer is shown below.\u003C/p\u003E\n\u003Cp\u003E\u003Cimg alt=\u0022optimization layer\u0022 src=\u0022media/Images/optimizes.png\u0022\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Solver Layer",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Solver Layer"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "solver-layer"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4emn1tt1rtdm5xfb9nf9j8thw9",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:50:33.4590548Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:50:33.4590548Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp class=\u0022clearright\u0022\u003EThis module of the VTS implements various radiative transport models or solvers that the user may use to solve his/her problem. Only a subset of the total available solvers may be active based on the specific source/detector configurations and/or tissue geometry/properties specified by the user. We have plans to implement analytic, deterministic, and stochastic solvers. Solvers already developed (but not necessarily implemented within the VTS) by core investigators of the Virtual Photonics Technology Initiative are as follows where the letter in [] denotes whether the solver implementation is Analytic, Deterministic, or Stochastic.\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003EStandard Diffusion Approximation (SDA/P\u003Csub\u003E1\u003C/sub\u003E) [\u003Ca href=\u0022/references\u0022\u003EA\u003C/a\u003E]\u003C/li\u003E\n\u003Cli style=\u0022list-style-type: none; list-style-image: none\u0022\u003E\n\u003Cul\u003E\n\u003Cli\u003EInternal dosimetry and reflectance/transmission.\u003C/li\u003E\n\u003Cli\u003ESteady-state and time-domain solvers\u003C/li\u003E\n\u003Cli\u003ESpatial frequency- and temporal frequency-domain solvers.\u003C/li\u003E\n\u003C/ul\u003E\n\u003C/li\u003E\n\u003Cli\u003EHigher-Order \u0027Diffusion\u0027 Solvers (P\u003Csub\u003EN\u003C/sub\u003E/\u03B4-P\u003Csub\u003EN\u003C/sub\u003E) [\u003Ca href=\u0022/references#higher\u0022\u003EA\u003C/a\u003E]\u003C/li\u003E\n\u003Cli\u003EConventional Monte Carlo [\u003Ca href=\u0022/references#Conventional\u0022\u003ES\u003C/a\u003E]\u003C/li\u003E\n\u003Cli\u003ECondensed History Monte Carlo [\u003Ca href=\u0022/references#Conventional\u0022\u003ES\u003C/a\u003E]\u003C/li\u003E\n\u003Cli\u003EElectric-Field Monte Carlo [\u003Ca href=\u0022/references#Conventional\u0022\u003ES\u003C/a\u003E]\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EThe graphical representation and references for this layer are given below. We are in the process of developing solvers using Adaptive Monte Carlo methods and hope, through collaboration, to incorporate Finite-Difference Time-Domain Solvers of the Maxwell\u0027s Equations. A graphical representation of the Solver Layer is shown below:\u003C/p\u003E\n\u003Cp\u003E\u003Cimg alt=\u0022solver layer\u0022 src=\u0022media/Images/solvers.png\u0022\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Problem Definition Layer",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Problem Definition Layer"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "problem-definition-layer"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4gnrzhkn448qk1gd05z6c4v5wh",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:52:21.7623063Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:52:21.7623063Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp class=\u0022clearright\u0022\u003EThis module of the VTS allows the user to select the desired:\u003C/p\u003E\n\u003Cul\u003E\n\u003Cli\u003Esource and detector configurations,\u003C/li\u003E\n\u003Cli\u003Etissue geometry, and\u003C/li\u003E\n\u003Cli\u003Eradiative transport properties.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp class=\u0022clearright\u0022\u003EA special feature of this layer is the ability to define the radiative transport properties of the tissue either (a) conventionally in terms of the optical coefficients for absorption (\u003Cem\u003E\u03BC\u003C/em\u003E\u003Csub\u003Ea\u003C/sub\u003E) and scattering (\u003Cem\u003E\u03BC\u003C/em\u003E\u003Csub\u003Es\u003C/sub\u003E) as well as, if appropriate, moments of the scattering phase function (\u003Cem\u003Eg\u003C/em\u003E\u003Csub\u003E1\u003C/sub\u003E,\u003Cem\u003Eg\u003C/em\u003E\u003Csub\u003E2\u003C/sub\u003E,.,\u003Cem\u003Eg\u003C/em\u003E\u003Csub\u003En\u003C/sub\u003E) \u003Cstrong\u003EOR\u003C/strong\u003E (b) in terms of tissue morphology and composition. This latter feature will queries the user about the tissue composition i.e., relative content of cells, extra cellular matrix, and vasculature as well as the concentration of important optical chromophores e.g., oxy- and deoxy-hemoglobin, water, melanin, fat, etc. From this user specification of tissue morphology and composition the VTS will automatically calculate the relevant optical properties at the desired wavelengths. A graphical representation of the capabilities resident in the Problem Definition Layer is provided below:\u003C/p\u003E\n\u003Cp\u003E\u003Cimg alt=\u0022problem layer\u0022 src=\u0022media/Images/problems.png\u0022\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Visualization Layer",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Visualization Layer"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "visualization-layer"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4kx40pek0zcx3skyd1thrpd9nq",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:53:37.9263761Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:53:37.9263761Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp class=\u0022clearright\u0022\u003EThe module of the VTS serves to format the data output generated by the solver, analysis, and optimization layers for easy visualization. In general, three classes of data will be displayed by this module:\u003C/p\u003E\n\u003Cul style=\u0022list-style-type: none; list-style-image: none\u0022 class=\u0022clearright\u0022\u003E\n\u003Cli\u003E(a) solver and analysis results related spatial, temporal, spectral, and/or angular distributions of the optical field within the tissue;\u003C/li\u003E\n\u003Cli\u003E(b) solver and analysis results related to spatial, temporal, and/or spectral distributions of transmitted/optical signals from the tissue;\u003C/li\u003E\n\u003Cli\u003E(c) optimization results related to the solution of inverse problems, i.e., determination of optical properties or optimal measurement/instrument configurations.\u003C/li\u003E\n\u003C/ul\u003E\n\u003Cp\u003EA graphical representation of the Solver Layer is shown below:\u003C/p\u003E\n\u003Cp\u003E\u003Cimg alt=\u0022visualization layer\u0022 src=\u0022media/Images/visuals.png\u0022\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Privacy Policy",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Privacy Policy"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "privacy-policy"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "4nan5wke6fv6f00tksvmjxqv5j",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T02:55:02.7238576Z",
+                "PublishedUtc": null,
+                "CreatedUtc": "2026-10-21T02:55:02.7238576Z",
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EOur website is hosted on DotNest and is therefore subject to\u0026nbsp;\u003Ca href=\u0022https://lombiq.com/privacy-policy\u0022 target=\u0022_blank\u0022 title=\u0022Lombiq\u0027s privacy policy\u0022\u003ELombiq\u0027s privacy policy\u003C/a\u003E. We do not currenty collect any other data on our website.\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Welcome to the Virtual Photonics Technology Initiative!",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Welcome to the Virtual Photonics Technology Initiative!"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "home"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "45fdvat8a0a020jq484vxrrwmk",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T03:23:11.4858327Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EThis website is a resource for interested users and developers of open-source computational (virtual)\u0026nbsp;technologies for the Biomedical Optics community. The Virtual Photonics Technology Initiative was initiated and supported\u0026nbsp;from 2008 \u2013 2019 by the Laser Microbeam and Medical Program (LAMMP), an NIBIB Biomedical Technology Resource Center at the\u0026nbsp;\u003Ca href=\u0022http://www.bli.uci.edu/\u0022 target=\u0022_blank\u0022 title=\u0022BLI Website\u0022\u003EBeckman Laser Institute and Medical Clinic\u003C/a\u003E. This Initiative remains active and welcomes contributions, collaboration, and support from potential academic and industrial stakeholders.\u003C/p\u003E\u003Ch3\u003EOur Primary Goals Are:\u003Cbr\u003E\u003Cbr\u003E\u003C/h3\u003E\u003Cul\u003E\u003Cli\u003EProvide easy-to-use\u0026nbsp;\u003Ca href=\u0022/software\u0022 target=\u0022_self\u0022\u003Esoftware\u003C/a\u003E\u0026nbsp;tools with graphical-user interfaces to simulate the propagation and distribution of optical radiation in cells and tissues.\u003Cbr\u003E\u003Cbr\u003E\u003C/li\u003E\u003Cli\u003ESupply\u0026nbsp;\u003Ca title=\u0022Education\u0022 href=\u0022https://education.virtualphotonics.org/\u0022\u003Eeducational\u003C/a\u003E\u0026nbsp;resources that provide the appropriate foundation for the proper usage of these computational tools.\u003Cbr\u003E\u003Cbr\u003E\u003C/li\u003E\u003Cli\u003EStimulate the formation of an active community of experts and\u0026nbsp;\u003Ca href=\u0022/developers\u0022 target=\u0022_self\u0022\u003Edevelopers\u003C/a\u003E\u0026nbsp;in Computational Biophotonics to advance this open-source effort.\u003Cbr\u003E\u003Cbr\u003E\u003C/li\u003E\u003C/ul\u003E\u003Cul\u003E\u003Cli\u003EDevelop improved computational models to simulate and design optical diagnostic, imaging, and therapeutic modalities.\u003Cbr\u003E\u003Cbr\u003E\u003C/li\u003E\u003C/ul\u003E\u003Ch3\u003EVirtual Tissue Simulator (VTS)\u003C/h3\u003E\u003Cp\u003EThe primary vehicle for the accomplishment of these goals is the ongoing development of the\u0026nbsp;\u003Ca href=\u0022/software-concept\u0022 title=\u0022VTS\u0022\u003EVirtual Tissue Simulator (VTS)\u003C/a\u003E. The VTS is being designed as a modular and scalable platform to provide an integrated suite of computational tools to define, solve, visualize, and analyze relevant forward and inverse radiative transport problems in Biomedical Optics. We intend to develop specific\u0026nbsp;\u003Cstrong\u003EApplication ToolKits (ATKs)\u003C/strong\u003E\u0026nbsp;that will provide a user-interface customized for the simulation of issues specific to an application domain. Examples include Small Animal Imaging and Fiber Optic Probe development.\u003C/p\u003E\u003Cp\u003E\u003Cbr style=\u0022color: rgba(0, 0, 0, 1); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px\u0022\u003E\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ContentItemId": "[js: uuid()]",
+          "ContentType": "Page",
+          "DisplayText": "Video Walkthroughs",
+          "Latest": true,
+          "Published": true,
+          "Owner": "[js: parameters(\u0027AdminUserId\u0027)]",
+          "Author": "[js: parameters(\u0027AdminUsername\u0027)]",
+          "Page": {},
+          "TitlePart": {
+            "Title": "Video Walkthroughs"
+          },
+          "AutoroutePart": {
+            "SetHomepage": false,
+            "Disabled": false,
+            "RouteContainedItems": false,
+            "Absolute": false,
+            "Path": "video"
+          },
+          "FlowPart": {
+            "Widgets": [
+              {
+                "ContentItemId": "47etwnqgbr7n652gsnahbp1248",
+                "ContentItemVersionId": null,
+                "ContentType": "HtmlWidget",
+                "DisplayText": null,
+                "Latest": false,
+                "Published": false,
+                "ModifiedUtc": "2026-10-21T03:26:46.5834068Z",
+                "PublishedUtc": null,
+                "CreatedUtc": null,
+                "Owner": "4y31k6mnytdzg60ykkme45pg5n",
+                "Author": "admin",
+                "HtmlBodyPart": {
+                  "Html": "\u003Cp\u003EThis is the first in a video series designed to introduce the capabilities of the Virtual Photonics open source tools. In this first video, we provide an overview of our Virtual Photonics Technology Initiative website and online Virtual Tissue Simulator (VTS) tool.\u003C/p\u003E\n\u003Cp\u003E\u003C/p\u003E\n\u003Cp\u003EThis is the second in a video series designed to introduce the capabilities of the Virtual Photonics open source tools. In this video, we provide an overview of the Spectral Panel capabilities within the Virtual Tissue Simulator (VTS) tool.\u003C/p\u003E\n\u003Cp\u003E\u003C/p\u003E\n\u003Cp\u003E\u0026nbsp;\u003C/p\u003E"
+                },
+                "AdditionalStylingPart": {
+                  "RemoveGridExtensionClasses": false,
+                  "CustomClasses": null
+                },
+                "@WeldedPartSettings": {
+                  "AdditionalStylingPart": {}
+                },
+                "FlowMetadata": {
+                  "Alignment": "Justify",
+                  "Size": 100
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "Files": [
+        {
+          "SourcePath": "Images/analysis.png",
+          "TargetPath": "Images/analysis.png"
+        },
+        {
+          "SourcePath": "Images/Capture.png",
+          "TargetPath": "Images/Capture.png"
+        },
+        {
+          "SourcePath": "Images/dawfcnofn.png",
+          "TargetPath": "Images/dawfcnofn.png"
+        },
+        {
+          "SourcePath": "Images/fluvsrhozft.png",
+          "TargetPath": "Images/fluvsrhozft.png"
+        },
+        {
+          "SourcePath": "Images/github.png",
+          "TargetPath": "Images/github.png"
+        },
+        {
+          "SourcePath": "Images/ipad-gui.jpg",
+          "TargetPath": "Images/ipad-gui.jpg"
+        },
+        {
+          "SourcePath": "Images/iPadGUI.jpg",
+          "TargetPath": "Images/iPadGUI.jpg"
+        },
+        {
+          "SourcePath": "Images/logo.png",
+          "TargetPath": "Images/logo.png"
+        },
+        {
+          "SourcePath": "Images/matlab.png",
+          "TargetPath": "Images/matlab.png"
+        },
+        {
+          "SourcePath": "Images/mccl.png",
+          "TargetPath": "Images/mccl.png"
+        },
+        {
+          "SourcePath": "Images/mie.jpg",
+          "TargetPath": "Images/mie.jpg"
+        },
+        {
+          "SourcePath": "Images/NIH-NIBIB200.png",
+          "TargetPath": "Images/NIH-NIBIB200.png"
+        },
+        {
+          "SourcePath": "Images/NIH-NIGMS200.png",
+          "TargetPath": "Images/NIH-NIGMS200.png"
+        },
+        {
+          "SourcePath": "Images/optimizes.png",
+          "TargetPath": "Images/optimizes.png"
+        },
+        {
+          "SourcePath": "Images/phase.jpg",
+          "TargetPath": "Images/phase.jpg"
+        },
+        {
+          "SourcePath": "Images/phase.png",
+          "TargetPath": "Images/phase.png"
+        },
+        {
+          "SourcePath": "Images/phdwaxes.png",
+          "TargetPath": "Images/phdwaxes.png"
+        },
+        {
+          "SourcePath": "Images/problems.png",
+          "TargetPath": "Images/problems.png"
+        },
+        {
+          "SourcePath": "Images/python.png",
+          "TargetPath": "Images/python.png"
+        },
+        {
+          "SourcePath": "Images/solvers.png",
+          "TargetPath": "Images/solvers.png"
+        },
+        {
+          "SourcePath": "Images/visuals.png",
+          "TargetPath": "Images/visuals.png"
+        },
+        {
+          "SourcePath": "Images/wpf-gui.png",
+          "TargetPath": "Images/wpf-gui.png"
+        }
+      ]
+    },
+    {
+      "name": "custom-settings",
+      "PrivacyConsentBannerSettings": {
+        "ContentItemId": "4k3hp61xhvaj8v9dp368cn9tm8",
+        "ContentItemVersionId": null,
+        "ContentType": "PrivacyConsentBannerSettings",
+        "DisplayText": "",
+        "Latest": false,
+        "Published": false,
+        "ModifiedUtc": null,
+        "PublishedUtc": null,
+        "CreatedUtc": null,
+        "Owner": "",
+        "Author": "admin",
+        "LiquidPart": {
+          "Liquid": "\u003Cdiv\u003E\r\n\tOur site uses browser cookies to personalize your experience.\r\n\tRegarding this issue, please find our information on data control and processing \u003Ca href=\u0022{{ \u0027~/privacy-policy\u0027 | href }}\u0022 target=\u0022_blank\u0022\u003Ehere\u003C/a\u003E\r\n\tand our information on server logging and usage of so-called \u0027cookies\u0027 \u003Ca href=\u0022{{ \u0027~/privacy-policy\u0027 | href }}\u0022 target=\u0022_blank\u0022\u003Ehere\u003C/a\u003E.\r\n\tBy clicking here You confirm your approval of the data processing activities mentioned in these documents.\r\n\tPlease note that You may only use this website efficiently if you agree to these conditions.\r\n\u003C/div\u003E"
+        }
+      }
+    },
+    {
+      "name": "Settings",
+      "BaseUrl": null,
+      "Calendar": null,
+      "MaxPagedCount": 0,
+      "MaxPageSize": 100,
+      "PageSize": 10,
+      "TimeZoneId": "America/Los_Angeles",
+      "ResourceDebugMode": "FromConfiguration",
+      "SiteName": "Virtual Photonics Technology Initiative",
+      "SiteSalt": "91404e1d2fef46deabcba6901f56dfe6",
+      "PageTitleFormat": "{% page_title Site.SiteName, position: \u0022after\u0022, separator: \u0022 - \u0022 %}",
+      "SuperUser": "4y31k6mnytdzg60ykkme45pg5n",
+      "UseCdn": false,
+      "CdnBaseUrl": null,
+      "HomeRoute": {
+        "Area": "OrchardCore.Contents",
+        "Controller": "Item",
+        "Action": "Display",
+        "contentItemId": "43xfxf7ce1xwpwxqsbm8b64cc4"
+      },
+      "AppendVersion": true,
+      "CacheMode": "FromConfiguration"
+    },
+    {
+      "name": "Themes",
+      "Site": "VirtualPhotonics.Theme",
+      "Admin": "TheAdmin"
+    }
+  ]
+}
