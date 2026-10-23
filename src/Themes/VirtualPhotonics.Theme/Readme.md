@@ -1,3 +1,5 @@
+# VirtualPhotonics.Theme
+
 This is the custom theme for the Virtual Photonics website. The theme includes custom layouts, styles, and components specific to the Virtual Photonics project.
 
 It uses the DotNest's MediaTheme to apply the custom style to the Virtual Photonics DotNest site.
