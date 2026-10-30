@@ -233,10 +233,9 @@ input[type="submit"], input[type="button"], .button {
 
 #layout-main {
     clear: both;
-    position: absolute;
-    top: 170px;
     border-top: none;
     min-height: 555px;
+    padding: 36px;
 }
 
 #layout-content {
@@ -483,7 +482,6 @@ ul.menu {
 
     #layout-main {
         background: none;
-        padding: 10px;
     }
 
     .software-tiles {
@@ -515,10 +513,6 @@ ul.menu {
     #header h1 {
         font-size: 120%;
         padding: 60px 0 0 90px;
-    }
-
-    #layout-main {
-        padding: 20px;
     }
 
     #layout-wrapper {
@@ -609,10 +603,6 @@ ul.menu {
         padding: 45px 0 0 170px;
     }
 
-    #layout-main {
-        padding: 16px 0 35px 27px;
-    }
-
     .software-tiles {
         font-size: 100%;
     }
@@ -628,7 +618,6 @@ ul.menu {
 @media (max-width: 886px) {
     #layout-main {
         background: none;
-        padding: 10px;
     }
 
     ul.menu li a, ul.menu li a:visited, ul.menu li a:active {
