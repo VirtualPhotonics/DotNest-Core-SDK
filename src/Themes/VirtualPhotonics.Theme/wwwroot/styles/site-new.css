@@ -1,0 +1,678 @@
+/* ============================================================
+   VirtualPhotonics — refreshed site.css
+   Retains the existing image assets and page structure.
+   ============================================================ */
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+/* Color palette: deep space blue, optical cyan, and photon gold */
+:root {
+    --ink: #193047;
+    --muted: #52677a;
+    --navy: #102c45;
+    --blue: #176b87;
+    --cyan: #45b8c7;
+    --gold: #e7ad42;
+    --paper: #f4f7f9;
+    --white: #fff;
+    --line: #d9e3e9;
+}
+
+/* Page background and typography */
+body {
+    min-height: 100vh;
+    background-color: #f4f7f9;
+    color: var(--ink);
+    font: 16px/1.65 Calibri, "Segoe UI", Tahoma, sans-serif;
+    text-align: left;
+}
+
+p {
+    margin: 0 0 1.2rem;
+    line-height: 1.7;
+}
+
+    p.small {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+    text-underline-offset: 3px;
+}
+
+    a:hover,
+    a:focus-visible {
+        color: #0b4d68;
+        text-decoration: underline;
+    }
+
+h1, h2, h3, h4, h5, h6, legend {
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+h1, h2 {
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--line);
+}
+
+h1 {
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+h2 {
+    font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.12rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+ul.square,
+ol.decimal {
+    margin: 0 0 1.2rem 1.2rem;
+    line-height: 1.7;
+}
+
+ul.square {
+    list-style: square;
+}
+
+ol.decimal {
+    list-style: decimal;
+}
+
+/* Header and logo — keep the existing artwork */
+#header {
+    position: relative;
+    z-index: 2;
+    float: none;
+    width: 100%;
+    height: 138px;
+    background: url("../images/header-background.png?3") no-repeat right top black;
+}
+
+    #header h1 {
+        width: 500px;
+        height: 138px;
+        padding: 0;
+        border: 0;
+        background: url("../images/logo.png") no-repeat left top;
+        color: transparent;
+        font-size: 0;
+    }
+
+        #header h1 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+            font-size: 0;
+        }
+
+#logindisplay {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    margin: 0;
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+    #logindisplay a {
+        color: var(--white);
+    }
+
+        #logindisplay a:hover {
+            color: #ffe2a0;
+        }
+
+/* Preserve the original photon artwork in the page background */
+#layout-wrapper {
+    display: flow-root;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-size: auto;
+}
+
+#layout-main {
+    position: relative;
+    top: auto;
+    clear: both;
+    display: flow-root;
+    width: min(100% - 2rem, 1240px);
+    min-height: 555px;
+    margin: 1rem auto 2rem;
+    padding: 1.5rem;
+    border: 1px solid rgb(217 227 233 / 85%);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgb(16 44 69 / 12%);
+}
+
+#layout-content {
+    float: left;
+    width: 68%;
+    padding: 0 1.5rem 1rem 0;
+}
+
+#aside-second {
+    float: right;
+    width: 27%;
+    min-height: 300px;
+    margin: 0;
+    padding: 0.5rem 0 1rem 1rem;
+    color: var(--ink);
+    box-shadow: -8px 0 18px -8px rgb(16 44 69 / 22%);
+}
+
+    #aside-second li {
+        padding: 0 0 0.8rem;
+        list-style: none;
+    }
+
+    #aside-second ul {
+        line-height: 1.5;
+    }
+
+.indent {
+    padding-left: 1.25rem;
+}
+
+#content ul {
+    margin: 0 0 1.2rem 1.25rem;
+    list-style: disc outside;
+    line-height: 1.65;
+}
+
+/* Main navigation */
+#menucontainer {
+    position: relative;
+    z-index: 5;
+    min-height: 52px;
+    background: var(--navy);
+    border-bottom: 3px solid var(--cyan);
+    text-align: center;
+}
+
+.menu {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    font-family: Calibri, "Segoe UI", Tahoma, sans-serif;
+    text-align: left;
+}
+
+ul.menu {
+    display: flex;
+    float: none;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    margin: 0 auto;
+    padding: 0.25rem 1rem;
+    list-style: none;
+}
+
+    ul.menu li {
+        float: none;
+        margin: 0;
+    }
+
+        ul.menu li a,
+        ul.menu li a:visited,
+        ul.menu li a:active {
+            display: block;
+            padding: 0.7rem 1rem;
+            border-radius: 6px;
+            color: #eaf4f7;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+            ul.menu li a:hover,
+            ul.menu li a:focus-visible {
+                background: rgb(69 184 199 / 18%);
+                color: #fff;
+            }
+
+        ul.menu li.On a {
+            color: #ffe2a0;
+        }
+
+/* Footer */
+#layout-footer {
+    position: relative;
+    bottom: auto;
+    clear: both;
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid var(--line);
+    background: #eaf0f3;
+    color: var(--muted);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+    #layout-footer .credits {
+        font-size: 0.9em;
+    }
+
+    #layout-footer .menu {
+        justify-content: center;
+        text-align: center;
+    }
+
+        #layout-footer .menu a {
+            margin: 0 0.5rem;
+            color: var(--muted);
+            font-weight: 400;
+            text-transform: none;
+        }
+
+.dotnest-credits {
+    margin: 0;
+}
+
+/* Hide author and edit links on published site */
+.published, .manage, #comments {
+    display: none;
+}
+
+/* Software page panels */
+.section-wide {
+    width: 50%;
+    margin: 0;
+}
+
+.section-narrow {
+    width: 25%;
+    margin: 0;
+}
+
+.section-middle {
+    width: 25%;
+    margin: 0;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.panel {
+    height: auto;
+    margin: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--cyan);
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 5px 18px rgb(16 44 69 / 8%);
+    text-align: center;
+}
+
+.image-side {
+    width: 48%;
+}
+
+    .image-side img,
+    .image-top img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+    }
+
+.image-top {
+    width: 100%;
+}
+
+.description {
+    min-height: 62px;
+    padding: 2rem 0.5rem;
+    color: var(--ink);
+    font-size: 1.15rem;
+}
+
+.description-horizontal {
+    min-height: 50px;
+    padding: 2rem 0.6rem 1rem;
+    color: var(--ink);
+    font-size: 1.15rem;
+}
+
+.middle {
+    min-height: 32px;
+    padding: 1.5rem 0.6rem;
+    color: var(--blue);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.software-images {
+    float: right;
+    width: 50%;
+    padding-left: 1.25rem;
+}
+
+.clear {
+    clear: both;
+}
+
+.panel-footer {
+    color: var(--blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Form controls */
+input[type="text"], #CommentText, #password,
+select, textarea {
+    display: block;
+    width: min(100%, 38rem);
+    padding: 0.6rem 0.7rem;
+    border: 1px solid #c4d1d9;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--ink);
+}
+
+input[type="checkbox"] {
+    margin: 0.2rem 0.5rem 1rem;
+}
+
+fieldset {
+    margin: 1.25rem 0;
+}
+
+    fieldset div {
+        margin-top: 1rem;
+    }
+
+legend {
+    font-size: 1.05rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--ink);
+}
+
+input[type="submit"], input[type="button"], .button {
+    display: inline-block;
+    margin: 0.5rem 0 1rem;
+    padding: 0.65rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--blue);
+    color: #fff;
+    font: 600 0.95rem Calibri, "Segoe UI", Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    .button:hover {
+        background: var(--navy);
+        color: #fff;
+    }
+
+.forcheckbox {
+    display: inline;
+    margin-left: 0.25rem;
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* Mobile navigation toggle */
+.nav-toggle {
+    display: none;
+    position: absolute;
+    z-index: 200;
+    top: 0.65rem;
+    right: 1rem;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    user-select: none;
+}
+
+    .nav-toggle .nav-toggle-bar,
+    .nav-toggle .nav-toggle-bar::after,
+    .nav-toggle .nav-toggle-bar::before {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        content: "";
+        transform: translateY(-50%);
+        transition: all 0.25s ease;
+    }
+
+        .nav-toggle .nav-toggle-bar::before {
+            margin-top: -8px;
+        }
+
+        .nav-toggle .nav-toggle-bar::after {
+            margin-top: 8px;
+        }
+
+    .nav-toggle.expanded .nav-toggle-bar {
+        background: transparent;
+    }
+
+        .nav-toggle.expanded .nav-toggle-bar::before {
+            margin-top: 0;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        .nav-toggle.expanded .nav-toggle-bar::after {
+            margin-top: 0;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+/* Tablet */
+@media (max-width: 886px) {
+    #layout-main {
+        width: calc(100% - 1.5rem);
+        padding: 1.25rem;
+    }
+
+    #layout-content {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    #aside-second {
+        float: none;
+        width: 100%;
+        min-height: 0;
+        padding: 1rem 0 0;
+        border-top: 1px solid var(--line);
+        box-shadow: none;
+    }
+
+    ul.menu li a,
+    ul.menu li a:visited,
+    ul.menu li a:active {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.82rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    body {
+        background-size: auto 110px;
+    }
+
+    #header {
+        background: url("../images/header-background.png") no-repeat right top black;
+        height: 110px;
+    }
+
+        #header h1 {
+            width: 100%;
+            height: 110px;
+            background: url("../images/logo.png") no-repeat left top black;
+            background-size: auto 110px;
+        }
+
+    #logindisplay {
+        top: 0.6rem;
+        right: 3.5rem;
+        font-size: 0.8rem;
+    }
+
+    #layout-wrapper {
+        background-image: none;
+    }
+
+    #menucontainer {
+        min-height: 18px;
+        text-align: left;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    ul.menu {
+        display: none;
+        width: 100%;
+        padding: 0.5rem 0;
+        background: var(--navy);
+    }
+
+        ul.menu.expanded {
+            display: block;
+        }
+
+        ul.menu li {
+            display: block;
+            margin: 0;
+        }
+
+            ul.menu li a,
+            ul.menu li a:visited,
+            ul.menu li a:active {
+                padding: 0.7rem 1rem;
+                font-size: 0.95rem;
+            }
+
+    #layout-main {
+        width: calc(100% - 1rem);
+        min-height: 0;
+        margin: 0.75rem auto 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .section-wide,
+    .section-narrow,
+    .section-middle,
+    .software-images,
+    .image-side,
+    .image-top {
+        float: none;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .software-tiles {
+        margin-bottom: 1rem;
+        font-size: 100%;
+    }
+
+    .description,
+    .description-horizontal,
+    .middle {
+        min-height: 0;
+        padding: 0.75rem 0.25rem;
+    }
+
+    .panel {
+        margin: 0.5rem 0;
+        padding: 0.75rem;
+    }
+
+    #layout-footer {
+        padding: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
